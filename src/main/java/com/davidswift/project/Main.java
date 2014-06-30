@@ -17,6 +17,7 @@ import java.sql.*;
 public final class Main {
   private Main() {}
 
+  //Testing code
   public static void main(String[] args) {
     ConnectionController connectionController = null;
     try {

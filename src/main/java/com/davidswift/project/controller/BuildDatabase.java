@@ -46,6 +46,7 @@ public final class BuildDatabase {
 
   }
 
+  //TODO include foreign keys
   private void buildRoomTable() throws SQLException {
     //create table
     String sqlString = ("CREATE TABLE ROOMTABLE(ROOM_NUMBER INTEGER NOT NULL PRIMARY KEY, " +
