@@ -16,7 +16,6 @@ import javafx.stage.*;
 import java.io.*;
 
 public final class Login extends Application {
-
   @Override
   public void start(Stage primaryStage) throws IOException {
     Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));

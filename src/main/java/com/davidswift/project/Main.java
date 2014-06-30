@@ -30,5 +30,7 @@ public final class Main {
     } catch (SQLException e) {
       e.printStackTrace();
     }
+
+    UserController
   }
 }

@@ -14,13 +14,13 @@ import java.sql.*;
  * Created by david on 6/29/2014.
  */
 public final class ConnectionController {
-  private final DBLocation location;
   private Connection connection;
 
   private <DBLocation> ConnectionController(DBLocation l) throws ClassNotFoundException,
       SQLException {
-    this.location = (com.davidswift.project.enums.DBLocation)l;
-    switch (this.location) {
+    final com.davidswift.project.enums.DBLocation location = (com.davidswift.project.enums
+        .DBLocation)l;
+    switch (location) {
       case LOCAL:
         Class.forName("oracle.jdbc.driver.OracleDriver");
         connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "admin",
