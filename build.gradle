@@ -1,0 +1,79 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+apply plugin: 'gradle-one-jar'
+
+allprojects {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+//predefined gradle variables for use else where in the build file
+group = 'com.davidswift.project' //must be defined for each new project
+version = '0.1' //change with updates
+mainClassName = 'com.davidswift.project.Main' //for executable files
+
+task initSourceFolders { // add << before { to prevent executing during configuration phase
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+//        classpath 'com.oracle:ojdbc6:11.2.0.2.0'
+        //compile files("${System.properties['java.home']}/lib/ext/jfxrt.jar")
+    }
+}
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile files('lib/ojdbc6.jar')
+}
+task fatJar(type: OneJar) {
+    mainClass = "${project.group}.Main"
+}
+
+//defines the location of the source directories
+sourceSets {
+    main {
+        java {
+            srcDir 'src/java'
+        }
+        resources {
+            srcDir 'src/resources'
+        }
+    }
+}
+
+artifacts {
+    archives fatJar
+}
+
+// defines how the jar will be made
+jar {
+    manifest {
+        //Main-Class adds the location of the main class inside the src directory
+        attributes 'Main-Class': "${project.group}.Main"
+    }
+    //includes compile dependencies as class files inside the jar
+//    from configurations.compile.collect { zipTree it }
+}
+//commandline
+//startScripts {
+//    doLast {
+//        unixScript.text = "java -jar ../build/lib/$jar.archiveName"
+//        windowsScript.text = "java -jar ..\\build\\lib\\$jar.archiveName"
+//    }
+//}
+//wrapper if not native
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.12'
+}
+
+//copy task not working
+//task copyToLib(task: Copy) {
+//    into 'lib'
+//    from 'build/libs'
+//}

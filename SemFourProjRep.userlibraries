@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="scala-compiler">
+    <archive path="C:/Program Files (x86)/scala/lib/scala-compiler.jar" />
+  </library>
+  <library name="scala-library">
+    <archive path="C:/Program Files (x86)/scala/lib/scala-library.jar" />
+  </library>
+</eclipse-userlibraries>
+
