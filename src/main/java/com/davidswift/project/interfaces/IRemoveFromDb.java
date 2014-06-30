@@ -9,5 +9,7 @@ package com.davidswift.project.interfaces;
  *
  * Created by david on 6/29/2014.
  */
+@FunctionalInterface
 public interface IRemoveFromDb {
+  public void removeFromDB();
 }

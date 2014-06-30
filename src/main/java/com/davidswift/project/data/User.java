@@ -1,7 +1,5 @@
 package com.davidswift.project.data;
 
-import java.util.*;
-
 /**
  * Project SemFourProjRep
  *
@@ -11,7 +9,7 @@ import java.util.*;
  *
  * Created by david on 6/30/2014.
  */
-public final class User extends Observable {
+public final class User {
   private final int userID;
   private final String userFirstName;
   private final String userLastName;

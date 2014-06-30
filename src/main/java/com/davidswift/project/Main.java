@@ -15,6 +15,8 @@ import java.sql.*;
  * Created by david on 6/29/2014.
  */
 public final class Main {
+  private Main() {}
+
   public static void main(String[] args) {
     ConnectionController connectionController = null;
     try {
@@ -24,13 +26,7 @@ public final class Main {
     }
     if (connectionController != null) {
       System.out.println(connectionController.getConnection());
+      BuildDatabase.createBuildDatabase(connectionController.getConnection());
     }
-    try {
-      BuildDatabase.createBuildDatabase();
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
-
-    UserController
   }
 }
