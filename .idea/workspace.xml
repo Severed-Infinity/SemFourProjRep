@@ -52,8 +52,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
+    <ui_properties converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -61,77 +61,78 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.43797275">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="UserController.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/UserController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="352">
-                  <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="UserView.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/view/UserView.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="224" max-vertical-offset="464">
-                  <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/Main.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.21843003" vertical-offset="0" max-vertical-offset="586">
-                  <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-                  <folding>
-                    <element signature="method#main#0;class#Main#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/data/User.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="672">
-                  <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="BuildDatabase.java" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/BuildDatabase.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.20609319" vertical-offset="653" max-vertical-offset="2016">
-                  <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-                  <folding>
-                    <element signature="docComment;class#BuildDatabase#0" expanded="true" />
-                    <element signature="method#BuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-                    <element signature="method#buildRoomTable#0;class#BuildDatabase#0" expanded="true" />
-                    <element signature="method#buildModuleTable#0;class#BuildDatabase#0" expanded="true" />
-                    <element signature="method#buildCourseTable#0;class#BuildDatabase#0" expanded="true" />
-                    <element signature="method#buildUserTable#0;class#BuildDatabase#0" expanded="true" />
-                    <element signature="method#createBuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-                    <element signature="method#wipdDatabase#0;class#BuildDatabase#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="IAddToDB.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/interfaces/IAddToDB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="41" max-vertical-offset="784">
+              <caret line="47" column="63" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1404422303959" expanded="true" signature="509:543" placeholder="Insert into missingValue..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConnectionController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/ConnectionController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="656">
+              <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+              <folding>
+                <element signature="method#ConnectionController#0;class#ConnectionController#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="224">
+              <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/data/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="57" max-vertical-offset="704">
+              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BuildDatabase.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/BuildDatabase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="592">
+              <caret line="76" column="52" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
+              <folding>
+                <element signature="method#buildUserTable#0;class#BuildDatabase#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6794658" vertical-offset="169" max-vertical-offset="832">
+              <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#Main#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -509,14 +510,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/view/Login.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/DBLocation.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/ConnectionController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/interfaces/IAddToDB.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/interfaces/IRemoveFromDb.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/interfaces/IUpdateInDB.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/data/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/view/UserView.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/BuildDatabase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/data/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/ConnectionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/interfaces/IAddToDB.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/davidswift/project/Main.java" />
       </list>
     </option>
@@ -578,6 +579,26 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SemFourProjRep" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SemFourProjRep" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SemFourProjRep" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -636,6 +657,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SemFourProjRep" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SemFourProjRep" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.davidswift.project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
@@ -643,26 +682,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SemFourProjRep" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SemFourProjRep" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SemFourProjRep" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1055,6 +1074,27 @@
       <setting name="showProgressMessages" value="true" />
       <method />
     </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -1073,27 +1113,6 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <extension name="scalaCoverage" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="$PROJECT_DIR$" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <list size="5">
@@ -1150,15 +1169,26 @@
       <workItem from="1404144790668" duration="2000" />
       <workItem from="1404144793867" duration="48000" />
       <workItem from="1404144843381" duration="4000000" />
+      <workItem from="1404401349625" duration="1206000" />
+      <workItem from="1404409011755" duration="61000" />
+      <workItem from="1404409074140" duration="3000" />
+      <workItem from="1404409078207" duration="2000" />
+      <workItem from="1404409082177" duration="8000" />
+      <workItem from="1404409091092" duration="54000" />
+      <workItem from="1404409147052" duration="2000" />
+      <workItem from="1404409150922" duration="1380000" />
+      <workItem from="1404421001944" duration="285000" />
+      <workItem from="1404421312190" duration="4000" />
+      <workItem from="1404421317647" duration="975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47717000" />
+    <option name="totallyTimeSpent" value="51697000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1173,7 +1203,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290469" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33014354" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1184,7 +1214,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33173844" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41945773" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1194,6 +1223,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33173844" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1229,14 +1259,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="365" max-vertical-offset="1088">
           <caret line="56" column="30" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
           <folding>
-            <element signature="docComment;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#BuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildRoomTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildModuleTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildCourseTable#0;class#BuildDatabase#0" expanded="true" />
             <element signature="method#buildUserTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#createBuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#wipdDatabase#0;class#BuildDatabase#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1246,7 +1269,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="448" max-vertical-offset="640">
           <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Main#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1255,7 +1279,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="528" max-vertical-offset="1056">
           <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1263,7 +1286,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="416" max-vertical-offset="544">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1272,7 +1294,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="528" max-vertical-offset="672">
           <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Main#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1281,7 +1304,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="320" max-vertical-offset="528">
           <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1289,7 +1311,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
           <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1297,7 +1318,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="400">
           <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1305,7 +1325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="400">
           <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1313,7 +1332,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="320" max-vertical-offset="1088">
           <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1321,7 +1339,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="192" max-vertical-offset="624">
           <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1329,7 +1346,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="400">
           <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1337,7 +1353,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="128" max-vertical-offset="272">
           <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1345,7 +1360,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="320" max-vertical-offset="1088">
           <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1353,7 +1367,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="352" max-vertical-offset="816">
           <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1362,14 +1375,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="467" max-vertical-offset="1088">
           <caret line="37" column="38" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
           <folding>
-            <element signature="docComment;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#BuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildRoomTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildModuleTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildCourseTable#0;class#BuildDatabase#0" expanded="true" />
             <element signature="method#buildUserTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#createBuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#wipdDatabase#0;class#BuildDatabase#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1379,7 +1385,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="464" max-vertical-offset="640">
           <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Main#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1389,14 +1396,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="467" max-vertical-offset="1088">
           <caret line="37" column="38" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
           <folding>
-            <element signature="docComment;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#BuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildRoomTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildModuleTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildCourseTable#0;class#BuildDatabase#0" expanded="true" />
             <element signature="method#buildUserTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#createBuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#wipdDatabase#0;class#BuildDatabase#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1406,7 +1406,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="464" max-vertical-offset="640">
           <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Main#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1416,14 +1417,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="592" max-vertical-offset="1088">
           <caret line="37" column="38" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
           <folding>
-            <element signature="docComment;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#BuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildRoomTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildModuleTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildCourseTable#0;class#BuildDatabase#0" expanded="true" />
             <element signature="method#buildUserTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#createBuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#wipdDatabase#0;class#BuildDatabase#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1433,7 +1427,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="464" max-vertical-offset="640">
           <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Main#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1443,14 +1438,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
           <caret line="37" column="38" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
           <folding>
-            <element signature="docComment;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#BuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildRoomTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildModuleTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildCourseTable#0;class#BuildDatabase#0" expanded="true" />
             <element signature="method#buildUserTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#createBuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#wipdDatabase#0;class#BuildDatabase#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1460,7 +1448,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="464" max-vertical-offset="640">
           <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Main#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1470,14 +1459,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="592" max-vertical-offset="1088">
           <caret line="37" column="38" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
           <folding>
-            <element signature="docComment;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#BuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildRoomTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildModuleTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildCourseTable#0;class#BuildDatabase#0" expanded="true" />
             <element signature="method#buildUserTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#createBuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#wipdDatabase#0;class#BuildDatabase#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1487,7 +1469,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="464" max-vertical-offset="640">
           <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Main#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1497,14 +1480,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1056">
           <caret line="41" column="78" selection-start-line="41" selection-start-column="78" selection-end-line="41" selection-end-column="78" />
           <folding>
-            <element signature="docComment;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#BuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildRoomTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildModuleTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildCourseTable#0;class#BuildDatabase#0" expanded="true" />
             <element signature="method#buildUserTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#createBuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#wipdDatabase#0;class#BuildDatabase#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1514,7 +1490,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="464" max-vertical-offset="640">
           <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Main#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1531,7 +1508,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="352">
           <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Main#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1548,7 +1526,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="352">
           <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Main#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1595,11 +1574,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/enums/DBLocation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/references/DBLocation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08142494" vertical-offset="0" max-vertical-offset="393">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1610,27 +1588,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/ConnectionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3003413" vertical-offset="16" max-vertical-offset="624">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/view/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.52380955" vertical-offset="16" max-vertical-offset="352">
           <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/interfaces/IAddToDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="208">
-          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1638,7 +1599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="208">
           <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1646,31 +1606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11111111" vertical-offset="0" max-vertical-offset="576">
           <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/data/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="672">
-          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/view/UserView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="336">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="224">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1692,24 +1627,25 @@
             <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.DEMO_USERS</node>
             <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.ROOMTABLE</node>
             <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.APEX$_WS_WEBPG_SECTIONS</node>
-            <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.APEX$_WS_TAGS</node>
             <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.COURSETABLE</node>
-            <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.EMP</node>
-            <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.APEX$_WS_FILES</node>
+            <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.APEX$_WS_TAGS</node>
             <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.DEMO_ORDERS</node>
+            <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.APEX$_WS_FILES</node>
+            <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.EMP</node>
             <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.DEMO_PRODUCT_INFO</node>
-            <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.DEMO_CUSTOMERS</node>
             <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.APEX$_ACL</node>
+            <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.DEMO_CUSTOMERS</node>
             <node x="" y="">b0d80820-add9-44b8-8ade-f82b7befaf18.table:ADMIN.DEPT</node>
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="0.1" x="1846.0" y="3777.34818187057" />
+          <settings layout="Hierarchic Group" zoom="0.1" x="1846.0" y="3777.0" />
           <SelectedNodes />
           <Categories>
-            <Category>Key columns</Category>
             <Category>Columns</Category>
+            <Category>Key columns</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -1726,35 +1662,74 @@
           <settings layout="Hierarchic Group" zoom="1.0" x="120.0" y="69.0" />
           <SelectedNodes />
           <Categories>
-            <Category>Key columns</Category>
             <Category>Columns</Category>
+            <Category>Key columns</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/view/UserView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21368948" vertical-offset="0" max-vertical-offset="599">
+          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="224">
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/data/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="704">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/ConnectionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="656">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding>
+            <element signature="method#ConnectionController#0;class#ConnectionController#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/controller/BuildDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20609319" vertical-offset="653" max-vertical-offset="2016">
-          <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="592">
+          <caret line="76" column="52" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
           <folding>
-            <element signature="docComment;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#BuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildRoomTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildModuleTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#buildCourseTable#0;class#BuildDatabase#0" expanded="true" />
             <element signature="method#buildUserTable#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#createBuildDatabase#0;class#BuildDatabase#0" expanded="true" />
-            <element signature="method#wipdDatabase#0;class#BuildDatabase#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/interfaces/IAddToDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="41" max-vertical-offset="784">
+          <caret line="47" column="63" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1404422303959" expanded="true" signature="509:543" placeholder="Insert into missingValue..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/davidswift/project/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21843003" vertical-offset="0" max-vertical-offset="586">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.6794658" vertical-offset="169" max-vertical-offset="832">
+          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Main#0" expanded="true" />
           </folding>
         </state>
       </provider>

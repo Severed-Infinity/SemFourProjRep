@@ -1,6 +1,6 @@
 package com.davidswift.project.controller;
 
-import com.davidswift.project.enums.*;
+import com.davidswift.project.references.*;
 
 import java.sql.*;
 
@@ -14,11 +14,13 @@ import java.sql.*;
  * Created by david on 6/29/2014.
  */
 public final class ConnectionController {
+
+  //TODO convert class to singleton
   private Connection connection;
 
   private <DBLocation> ConnectionController(DBLocation l) throws ClassNotFoundException,
       SQLException {
-    final com.davidswift.project.enums.DBLocation location = (com.davidswift.project.enums
+    final com.davidswift.project.references.DBLocation location = (com.davidswift.project.references
         .DBLocation)l;
     switch (location) {
       case LOCAL:

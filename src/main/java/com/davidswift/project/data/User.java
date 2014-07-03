@@ -1,5 +1,7 @@
 package com.davidswift.project.data;
 
+import com.davidswift.project.interfaces.*;
+
 /**
  * Project SemFourProjRep
  *
@@ -9,7 +11,7 @@ package com.davidswift.project.data;
  *
  * Created by david on 6/30/2014.
  */
-public final class User {
+public final class User implements IAddToDB{
   private final int userID;
   private final String userFirstName;
   private final String userLastName;

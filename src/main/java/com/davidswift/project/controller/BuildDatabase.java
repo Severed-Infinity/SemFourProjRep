@@ -18,7 +18,7 @@ public final class BuildDatabase {
   private BuildDatabase(final Connection connection){
     this.connection = connection;
     try {
-      wipdDatabase();
+      wipeDatabase();
     } catch (SQLException e) {
       e.printStackTrace();
     } finally {
@@ -88,7 +88,7 @@ public final class BuildDatabase {
         (connection);
   }
 
-  private void wipdDatabase() throws SQLException {
+  private void wipeDatabase() throws SQLException {
     try {
       preparedStatement = connection.prepareStatement("Drop table roomtable");
       preparedStatement.execute();
