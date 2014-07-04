@@ -15,7 +15,7 @@ public final class BuildDatabase {
   private final Connection connection;
   private PreparedStatement preparedStatement;
 
-  private BuildDatabase(final Connection connection){
+  private BuildDatabase(final Connection connection) {
     this.connection = connection;
     try {
       wipeDatabase();
@@ -83,11 +83,6 @@ public final class BuildDatabase {
     preparedStatement.executeUpdate();
   }
 
-  public static BuildDatabase createBuildDatabase(Connection connection) {
-    return new BuildDatabase
-        (connection);
-  }
-
   private void wipeDatabase() throws SQLException {
     try {
       preparedStatement = connection.prepareStatement("Drop table roomtable");
@@ -116,5 +111,10 @@ public final class BuildDatabase {
     } catch (SQLException ex) {
       throw new SQLException("Table 'USERTABLE' does not exist");
     }
+  }
+
+  public static BuildDatabase createBuildDatabase(Connection connection) {
+    return new BuildDatabase
+        (connection);
   }
 }

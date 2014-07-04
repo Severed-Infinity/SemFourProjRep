@@ -1,5 +1,0 @@
-<?import javafx.scene.layout.*?>
-<GridPane xmlns:fx="http://javafx.com/fxml"
-          fx:controller="com.davidswift.project.controller.LoginController">
-
-</GridPane>

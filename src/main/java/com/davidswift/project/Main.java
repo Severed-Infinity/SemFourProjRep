@@ -1,8 +1,7 @@
 package com.davidswift.project;
 
-import com.davidswift.project.controller.*;
 import com.davidswift.project.data.*;
-import com.davidswift.project.references.*;
+import com.davidswift.project.utility.*;
 
 import java.sql.*;
 
@@ -20,27 +19,20 @@ public final class Main {
 
   //Testing code
   public static void main(String[] args) {
-
-    PreparedStatement psTest;
-
-    ConnectionController connectionController = null;
-    try {
-      connectionController = ConnectionController.createConnectionController(DBLocation.LOCAL);
-    } catch (ClassNotFoundException | SQLException e) {
-      e.printStackTrace();
-    }
-    if (connectionController != null) {
-      System.out.println(connectionController.getConnection());
-      BuildDatabase.createBuildDatabase(connectionController.getConnection());
-    }
-
-    //TODO test functionality of addToDB
+    System.out.println(DatabaseConnection.getInstance());
     User testUser = User.createUser(1, "testFirst", "testLast", "testPass", "testDept");
     try {
-      testUser.addToDB(psTest, "Usertable", testUser.getUserID(), testUser.getUserFirstName(),
-          testUser.getUserLastName(), testUser.getUserPassword(), testUser.getDepartment());
+      testUser.removeFromDB("user", testUser.getUserID());
     } catch (SQLException e) {
       e.printStackTrace();
     }
+
+//    try {
+//      testUser.addToDB("user",
+//          testUser.getUserID(), testUser.getUserFirstName(),
+//          testUser.getUserLastName(), testUser.getUserPassword(), testUser.getDepartment());
+//    } catch (SQLException e) {
+//      e.printStackTrace();
+//    }
   }
 }

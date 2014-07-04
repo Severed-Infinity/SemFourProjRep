@@ -1,9 +1,5 @@
 package com.davidswift.project.controller;
 
-import com.davidswift.project.references.*;
-
-import java.sql.*;
-
 /**
  * Project SemFourProjRep
  *
@@ -14,8 +10,6 @@ import java.sql.*;
  * Created by david on 6/29/2014.
  */
 public final class ConnectionController {
-
-  //TODO convert class to singleton
   private Connection connection;
 
   private <DBLocation> ConnectionController(DBLocation l) throws ClassNotFoundException,

@@ -11,7 +11,7 @@ import com.davidswift.project.interfaces.*;
  *
  * Created by david on 6/30/2014.
  */
-public final class User implements IAddToDB{
+public final class User implements IAddToDB, IRemoveFromDb {
   private final int userID;
   private final String userFirstName;
   private final String userLastName;

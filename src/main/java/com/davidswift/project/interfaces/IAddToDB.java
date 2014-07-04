@@ -1,7 +1,8 @@
 package com.davidswift.project.interfaces;
 
+import com.davidswift.project.utility.*;
+
 import java.sql.*;
-import java.util.Date;
 
 /**
  * Project SemFourProjRep
@@ -13,20 +14,22 @@ import java.util.Date;
  * Created by david on 6/29/2014.
  */
 public interface IAddToDB {
-
-  //TODO add connection capabilities
-  public default void addToDB(PreparedStatement ps, String table, Object... args) throws
+  public default void addToDB(String table, Object... args) throws
       SQLException {
-    StringBuilder stringBuilder = new StringBuilder();
-    stringBuilder.append("Insert into " + table + " values (");
-
     int i = 1;
+    StringBuilder stringBuilder = new StringBuilder();
+    //initial start of insert statement
+    stringBuilder.append("Insert into ").append(table).append("table values (");
+    //dynamic adding of arguments
+    for (int j = 1; j < args.length; j++) {
+      stringBuilder.append("?,");
+    }
+    stringBuilder.append("?)"); // end of insert statement
+    System.out.println(stringBuilder.toString());//testing the output of the insert statement
+    final PreparedStatement ps = DatabaseConnection.getInstance().getConnection().prepareStatement(
+        stringBuilder.toString()); //gathering the string to be executed
+    //running through the passed in arguments and finding there types
     for (Object arg : args) {
-      stringBuilder.append("?");
-      if (i != args.length) {
-        stringBuilder.append(",");
-      }
-
       if (arg instanceof Date) {
         ps.setTimestamp(i++, new Timestamp(((Date)arg).getTime()));
       } else if (arg instanceof Integer) {
@@ -41,11 +44,6 @@ public interface IAddToDB {
         ps.setString(i++, (String)arg);
       }
     }
-
-    stringBuilder.append(");");
-    System.out.println(stringBuilder.toString());
-
-    ps = connection.prepareStatement(stringBuilder.toString());
-    ps.executeUpdate();
+    ps.executeQuery();//executing the insert
   }
 }
