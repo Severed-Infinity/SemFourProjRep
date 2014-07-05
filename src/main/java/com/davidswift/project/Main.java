@@ -2,10 +2,7 @@ package com.davidswift.project;
 
 import com.davidswift.project.controller.*;
 import com.davidswift.project.data.*;
-import com.davidswift.project.references.*;
 import com.davidswift.project.utility.*;
-
-import java.sql.*;
 
 /**
  * Project SemFourProjRep
@@ -25,18 +22,18 @@ public final class Main {
     System.out.println(DatabaseConnection.getInstance());
     BuildDatabase.createBuildDatabase();
     User testUser = User.createUser(1, "testFirst", "testLast", "testPass", "testDept");
-    try {
-      testUser.removeFromDB(Table.USER.getValue(), testUser.getUserID());
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
-
-    try {
-      testUser.addToDB(Table.USER.getValue(),
-          testUser.getUserID(), testUser.getUserFirstName(),
-          testUser.getUserLastName(), testUser.getUserPassword(), testUser.getDepartment());
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
+//    try {
+//      testUser.removeFromDB(Table.USER.getValue(), testUser.getUserID());
+//    } catch (SQLException e) {
+//      e.printStackTrace();
+//    }
+//
+//    try {
+//      testUser.addToDB(Table.USER.getValue(),
+//          testUser.getUserID(), testUser.getUserFirstName(),
+//          testUser.getUserLastName(), testUser.getUserPassword(), testUser.getDepartment());
+//    } catch (SQLException e) {
+//      e.printStackTrace();
+//    }
   }
 }

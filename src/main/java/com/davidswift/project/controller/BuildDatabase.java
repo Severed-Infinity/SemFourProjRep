@@ -145,7 +145,6 @@ public final class BuildDatabase {
   }
 
   public static BuildDatabase createBuildDatabase() {
-    return new BuildDatabase
-        ();
+    return new BuildDatabase();
   }
 }
