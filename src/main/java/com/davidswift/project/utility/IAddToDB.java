@@ -1,6 +1,4 @@
-package com.davidswift.project.interfaces;
-
-import com.davidswift.project.utility.*;
+package com.davidswift.project.utility;
 
 import java.sql.*;
 

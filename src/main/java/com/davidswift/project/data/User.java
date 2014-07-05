@@ -1,6 +1,6 @@
 package com.davidswift.project.data;
 
-import com.davidswift.project.interfaces.*;
+import com.davidswift.project.utility.*;
 
 /**
  * Project SemFourProjRep

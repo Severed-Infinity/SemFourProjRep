@@ -1,6 +1,4 @@
-package com.davidswift.project.interfaces;
-
-import com.davidswift.project.utility.*;
+package com.davidswift.project.utility;
 
 import java.sql.*;
 
@@ -14,8 +12,7 @@ import java.sql.*;
  * Created by david on 6/29/2014.
  */
 public interface IRemoveFromDb {
-  //TODO change object args to int (for ID)
-  public default <String, T> void removeFromDB(String table, T t) throws SQLException {
+  public default <T> void removeFromDB(String table, T t) throws SQLException {
     java.lang.String delete = "Delete from " + table + "table where " + table +
         "_ID = "
         + t;
