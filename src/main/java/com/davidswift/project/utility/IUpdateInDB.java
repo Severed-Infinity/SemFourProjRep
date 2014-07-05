@@ -9,8 +9,7 @@ package com.davidswift.project.utility;
  *
  * Created by david on 6/29/2014.
  */
+@FunctionalInterface
 public interface IUpdateInDB {
-  public default <T> void updateInDB(String table, T t) {
-
-  }
+  public void updateInDB();
 }

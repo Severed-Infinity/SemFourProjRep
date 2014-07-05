@@ -9,6 +9,5 @@
 	<classpathentry kind="src" path="src/resources"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Gradle: ojdbc6"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Gradle: unresolved_dependency___junit_junit_4_11"/>
-	<classpathentry kind="lib" path="lib/ojdbc6.jar"/>
 	<classpathentry kind="output" path="out/production/SemFourProjRep"/>
 </classpath>

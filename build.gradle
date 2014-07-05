@@ -10,7 +10,7 @@ allprojects {
 }
 //predefined gradle variables for use else where in the build file
 group = 'com.davidswift.project' //must be defined for each new project
-version = '0.4' //change with updates
+version = '0.2' //change with updates
 mainClassName = 'com.davidswift.project.Main' //for executable files
 
 task initSourceFolders { // add << before { to prevent executing during configuration phase
