@@ -45,12 +45,13 @@ public final class Main {
     } catch (SQLException e) {
       e.printStackTrace();
     }
+    System.out.println(testCourse.toString());
     try {
       testCourse.updateInDB(Table.COURSE.getValue(), new String[] {"course_head"},
-          "testHeadChanged");
+          "testHeadChanged", 1);
     } catch (SQLException e) {
       e.printStackTrace();
     }
-
+    System.out.println(testCourse.toString());
   }
 }

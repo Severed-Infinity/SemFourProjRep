@@ -19,30 +19,25 @@ public interface IUpdateInDB {
     int i = 1;
     StringBuilder update = new StringBuilder().append("Update ").append(table).append("table set ");
     for (String column : columns) {
-      update.append(column.toUpperCase()).append(" = ?");
+      update.append(column.toUpperCase()).append(" = ? ");
     }
+    update.append("Where ").append(table).append("_ID = ?");
     PreparedStatement ps = DatabaseConnection.getInstance().getConnection().prepareStatement
         (update.toString());
-    System.out.println(update);
-    //TODO figure out why it fails here
-    ps.executeUpdate();
-
-    ResultSet resultSet = ps.getResultSet();
-    while (resultSet.next()) {
-      if (args[i] instanceof Date) {
-        ps.setTimestamp(i++, new Timestamp(((Date)args[i]).getTime()));
-      } else if (args[i] instanceof Integer) {
-        ps.setInt(i++, (Integer)args[i]);
-      } else if (args[i] instanceof Long) {
-        ps.setLong(i++, (Long)args[i]);
-      } else if (args[i] instanceof Double) {
-        ps.setDouble(i++, (Double)args[i]);
-      } else if (args[i] instanceof Float) {
-        ps.setFloat(i++, (Float)args[i]);
+    for (Object arg : args) {
+      if (arg instanceof Date) {
+        ps.setTimestamp(i++, new Timestamp(((Date)arg).getTime()));
+      } else if (arg instanceof Integer) {
+        ps.setInt(i++, (Integer)arg);
+      } else if (arg instanceof Long) {
+        ps.setLong(i++, (Long)arg);
+      } else if (arg instanceof Double) {
+        ps.setDouble(i++, (Double)arg);
+      } else if (arg instanceof Float) {
+        ps.setFloat(i++, (Float)arg);
       } else {
-        ps.setString(i++, (String)args[i]);
+        ps.setString(i++, (String)arg);
       }
-
     }
     System.out.println(update);
     ps.executeUpdate();

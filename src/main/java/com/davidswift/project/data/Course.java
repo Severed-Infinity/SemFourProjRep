@@ -14,6 +14,18 @@ import com.davidswift.project.utility.*;
 public class Course implements IAddToDB, IRemoveFromDb, IUpdateInDB{
 //  public HashMap<String, Object> updateConditionals = new HashMap<>(5);
   private int courseID;
+
+  @Override
+  public String toString() {
+    return "Course{" +
+        "courseID=" + courseID +
+        ", courseName='" + courseName + '\'' +
+        ", courseHead='" + courseHead + '\'' +
+        ", courseLength=" + courseLength +
+        ", department='" + department + '\'' +
+        '}';
+  }
+
   private String courseName;
   private String courseHead;
   private int courseLength;
