@@ -18,11 +18,9 @@ public class DatabaseConnection implements Serializable {
   private static final long serialVersionUID = 1L;
   private Connection connection;
 
-  private <DBLocation> DatabaseConnection(DBLocation l) throws ClassNotFoundException,
+  private DatabaseConnection(DBLocation l) throws ClassNotFoundException,
       SQLException {
-    final com.davidswift.project.references.DBLocation location = (com.davidswift.project.references
-        .DBLocation)l;
-    switch (location) {
+    switch (l) {
       case LOCAL:
         Class.forName("oracle.jdbc.driver.OracleDriver");
         connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "admin",

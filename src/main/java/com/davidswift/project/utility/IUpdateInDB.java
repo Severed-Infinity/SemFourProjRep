@@ -1,4 +1,4 @@
-package com.davidswift.project.interfaces;
+package com.davidswift.project.utility;
 
 /**
  * Project SemFourProjRep
