@@ -1,11 +1,11 @@
 #################
 ## Others - Project Specific
 #################
-/bin/*
-/build/*
-/old code/*
-/out/*
-/samples/*
+/bin
+/build
+/old code
+/out
+/samples
 
 #################
 ## Eclipse
