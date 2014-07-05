@@ -73,7 +73,7 @@ public final class BuildDatabase {
     //create table
     String sqlString = "CREATE TABLE COURSETABLE(COURSE_ID INTEGER NOT NULL PRIMARY KEY, " +
         "COURSE_NAME VARCHAR2(50) NOT NULL, COURSE_HEAD VARCHAR2(30) NOT NULL, " +
-        "COURSE_LENGTH INTEGER NOT NULL, DEPARTMENT_NAME VARCHAR2(50) NOT NULL)";
+        "COURSE_LENGTH INTEGER NOT NULL, DEPARTMENT VARCHAR2(50) NOT NULL)";
     preparedStatement = DatabaseConnection.getInstance().getConnection().prepareStatement(
         sqlString);
     System.out.println("Creating table: COURSETABLE");

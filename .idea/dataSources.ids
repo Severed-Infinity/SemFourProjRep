@@ -333,8 +333,8 @@
       <column name="COURSE_NAME" sqlType="VARCHAR2" precision="50" scale="0" nullable="false" jdbcType="12"/>
       <column name="COURSE_HEAD" sqlType="VARCHAR2" precision="30" scale="0" nullable="false" jdbcType="12"/>
       <column name="COURSE_LENGTH" sqlType="NUMBER" precision="0" scale="-127" nullable="false" jdbcType="3"/>
-      <column name="DEPARTMENT_NAME" sqlType="VARCHAR2" precision="50" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="SYS_C009395" columns="COURSE_ID"/>
+      <column name="DEPARTMENT" sqlType="VARCHAR2" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="SYS_C009835" columns="COURSE_ID"/>
     </table>
     <table name="DEMO_CUSTOMERS" schema="ADMIN" catalog="" type="TABLE">
       <column name="CUSTOMER_ID" sqlType="NUMBER" precision="0" scale="-127" nullable="false" jdbcType="3" version="true"/>

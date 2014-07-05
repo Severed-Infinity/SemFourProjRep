@@ -13,7 +13,7 @@ import java.sql.*;
  */
 public interface IRemoveFromDb {
   public default <T> void removeFromDB(String table, T t) throws SQLException {
-    java.lang.String delete = "Delete from " + table + "table where " + table +
+    String delete = "Delete from " + table + "table where " + table +
         "_ID = "
         + t;
     System.out.println(delete);

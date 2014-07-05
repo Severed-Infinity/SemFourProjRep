@@ -18,10 +18,10 @@ public final class Main {
 
   //Testing code
   public static void main(String[] args) {
-
     System.out.println(DatabaseConnection.getInstance());
     BuildDatabase.createBuildDatabase();
     User testUser = User.createUser(1, "testFirst", "testLast", "testPass", "testDept");
+<<<<<<< HEAD
 //    try {
 //      testUser.removeFromDB(Table.USER.getValue(), testUser.getUserID());
 //    } catch (SQLException e) {
@@ -35,5 +35,36 @@ public final class Main {
 //    } catch (SQLException e) {
 //      e.printStackTrace();
 //    }
+=======
+    try {
+      testUser.removeFromDB(Table.USER.getValue(), testUser.getUserID());
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    try {
+      testUser.addToDB(Table.USER.getValue(),
+          testUser.getUserID(), testUser.getUserFirstName(),
+          testUser.getUserLastName(), testUser.getUserPassword(), testUser.getDepartment());
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+
+    Course testCourse = Course.createCourse(1, "testCourse", "testHead", 4, "testDept");
+    try {
+      testCourse.addToDB(Table.COURSE.getValue(), testCourse.getCourseID(),
+          testCourse.getCourseName(), testCourse.getCourseHead(), testCourse.getCourseLength(),
+          testCourse.getDepartment());
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    System.out.println(testCourse.toString());
+    try {
+      testCourse.updateInDB(Table.COURSE.getValue(), new String[] {"course_head"},
+          "testHeadChanged", 1);
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    System.out.println(testCourse.toString());
+>>>>>>> origin/testing
   }
 }

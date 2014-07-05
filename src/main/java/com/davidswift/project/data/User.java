@@ -11,12 +11,13 @@ import com.davidswift.project.utility.*;
  *
  * Created by david on 6/30/2014.
  */
-public final class User implements IAddToDB, IRemoveFromDb {
+public final class User implements IAddToDB, IRemoveFromDb, IUpdateInDB {
   private final int userID;
   private final String userFirstName;
   private final String userLastName;
   private final String userPassword;
   private final String department;
+//  public HashMap<String, Object> updateConditionals = new HashMap<>(5);
 
   private User(
       final int userID,
@@ -30,6 +31,12 @@ public final class User implements IAddToDB, IRemoveFromDb {
     this.userLastName = userLastName;
     this.userPassword = userPassword;
     this.department = department;
+
+//    updateConditionals.put("USER_ID", this.getUserID());
+//    updateConditionals.put("USER_FIRST_NAME", this.getUserFirstName());
+//    updateConditionals.put("USER_LAST_NAME", this.getUserLastName());
+//    updateConditionals.put("USER_PASSWORD", this.getUserPassword());
+//    updateConditionals.put("DEPARTMENT", this.getDepartment());
   }
 
   public static User createUser(
@@ -58,5 +65,9 @@ public final class User implements IAddToDB, IRemoveFromDb {
 
   public String getDepartment() {
     return department;
+  }
+
+  @Override
+  public void update(final Object... args) {
   }
 }
