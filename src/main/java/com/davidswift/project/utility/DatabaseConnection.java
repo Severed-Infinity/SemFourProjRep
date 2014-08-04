@@ -1,9 +1,13 @@
 package com.davidswift.project.utility;
 
 import com.davidswift.project.references.*;
+import oracle.jdbc.pool.*;
 
+import javax.sql.*;
 import java.io.*;
 import java.sql.*;
+import java.util.*;
+import java.util.logging.*;
 
 /**
  * Project SemFourProjRep
@@ -15,22 +19,34 @@ import java.sql.*;
  * Created by david on 7/4/2014.
  */
 public class DatabaseConnection implements Serializable {
+  private static final Logger LOGGER = Logger.getLogger(DatabaseConnection.class.getName());
   private static final long serialVersionUID = 1L;
-  private Connection connection;
+  private transient PooledConnection connection;
 
-  private DatabaseConnection(DBLocation l) throws ClassNotFoundException,
+  private DatabaseConnection(final DBLocation location) throws
       SQLException {
-    switch (l) {
+    super();
+    final OracleConnectionPoolDataSource dataSource = new OracleConnectionPoolDataSource();
+    switch (location) {
       case LOCAL:
-        Class.forName("oracle.jdbc.driver.OracleDriver");
-        connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "admin",
-            "admin");
+        LOGGER.log(Level.INFO, "Connecting Locally");
+        dataSource.setDriverType("oracle.jdbc.driver.OracleDriver");
+        dataSource.setURL("jdbc:oracle:thin:@localhost:1521:XE");
+        this.connection = dataSource.getPooledConnection("admin", "admin");
+        //         this.connection = DriverManager.getConnection
+        // ("jdbc:oracle:thin:@localhost:1521:XE",
+        //                "admin",
+        //                "admin");
         break;
       case COLLEGE:
-        Class.forName("oracle.jdbc.driver.OracleDriver");
-        connection = DriverManager.getConnection("jdbc:oracle:thin:@//10.10.2.7:1521/global1",
-            "X00073017",
-            "db03Dec91");
+        LOGGER.log(Level.INFO, "Connecting to College Network");
+        dataSource.setDriverType("oracle.jdbc.driver.OracleDriver");
+        dataSource.setURL("jdbc:oracle:thin:@//10.10.2.7:1521/global1");
+        this.connection = dataSource.getPooledConnection("X00073017", "db03Dec91");
+        //        this.connection = DriverManager.getConnection("jdbc:oracle:thin:@//10.10.2
+        // .7:1521/global1",
+        //            "X00073017",
+        //            "db03Dec91");
         break;
     }
   }
@@ -39,29 +55,53 @@ public class DatabaseConnection implements Serializable {
     return getInstance();
   }
 
-  public static DatabaseConnection getInstance() {
-    return DatabaseConnectionHolder.INSTANCE.get();
+  public static Connection getInstance() {
+    //    return DatabaseConnectionHolder.INSTANCE.get();
+    Connection returnConnection = null;
+    try {
+      LOGGER.log(Level.INFO, "Retrieving Database Connection instance");
+      returnConnection = DatabaseConnectionHolder.DATABASE_CONNECTION_OPTIONAL.get()
+          .get()
+          .getConnection().getConnection();
+    } catch (final SQLException e) {
+      LOGGER.log(Level.SEVERE, "Unable to retrieve a Database Connection Instance", e);
+    }
+    return returnConnection;
   }
 
-  public Connection getConnection() {
-    return connection;
+  protected PooledConnection getConnection() {
+    return this.connection;
   }
 
-  private static class DatabaseConnectionHolder {
-    public static final ThreadLocal<DatabaseConnection> INSTANCE = new ThreadLocal
-        <DatabaseConnection>() {
+  private static final class DatabaseConnectionHolder {
+    public static final ThreadLocal<Optional<DatabaseConnection>> DATABASE_CONNECTION_OPTIONAL =
+        new ThreadLocal<Optional<DatabaseConnection>>() {
       @Override
-      protected DatabaseConnection initialValue() {
+      protected Optional<DatabaseConnection> initialValue() {
+        Optional<DatabaseConnection> returnNewDatabaseConnection = Optional.empty();
         try {
-          //TODO dynamic injection of location
-          return new DatabaseConnection(DBLocation.LOCAL);
-        } catch (ClassNotFoundException e) {
-          e.printStackTrace();
-        } catch (SQLException e) {
-          e.printStackTrace();
+          returnNewDatabaseConnection = Optional.of
+              (new DatabaseConnection(DBLocation.LOCAL));
+        } catch (final SQLException e) {
+          LOGGER.log(Level.SEVERE, "Could not establish a Database Connection", e);
         }
-        return null;
+        return returnNewDatabaseConnection;
       }
     };
+    //    public static final ThreadLocal<DatabaseConnection> INSTANCE = new ThreadLocal
+    //        <DatabaseConnection>() {
+    //      @Override
+    //      protected DatabaseConnection initialValue() {
+    //        try {
+    //          //TODO dynamic injection of location
+    //          return new DatabaseConnection(DBLocation.LOCAL);
+    //        } catch (final ClassNotFoundException e) {
+    //          e.printStackTrace();
+    //        } catch (final SQLException e) {
+    //          e.printStackTrace();
+    //        }
+    //        return null;
+    //      }
+    //    };
   }
 }
