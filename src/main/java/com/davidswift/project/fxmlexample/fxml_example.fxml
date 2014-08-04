@@ -45,7 +45,7 @@
     </padding>
 
     <stylesheets>
-        <URL value="@/assets/project/Base.css"/>
+        <URL value="@../view/Base.css"/>
     </stylesheets>
     <columnConstraints>
         <ColumnConstraints/>
