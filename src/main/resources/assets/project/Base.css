@@ -3,7 +3,7 @@
 }
 
 .root {
-     -fx-background-image: url('../../../../../resources/assets/project/background.jpg');
+     -fx-background-image: url('background.jpg');
 }
 
 .label {

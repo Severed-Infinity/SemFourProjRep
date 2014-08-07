@@ -5,10 +5,13 @@
 	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="src" path="src/test/resources"/>
+	<classpathentry kind="src" path="src/package/java"/>
 	<classpathentry kind="src" path="src/java"/>
 	<classpathentry kind="src" path="src/resources"/>
+	<classpathentry kind="src" path="src/package/resources"/>
+	<classpathentry kind="src" path="src/deploy/package"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Gradle: ojdbc6"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Gradle: unresolved_dependency___junit_junit_4_11"/>
-	<classpathentry kind="lib" path="lib/ojdbc6.jar"/>
-	<classpathentry kind="output" path="out/production/SemFourProjRep"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Gradle: jfxrt"/>
+	<classpathentry kind="output" path="build/classes/main"/>
 </classpath>

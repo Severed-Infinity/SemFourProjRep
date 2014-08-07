@@ -14,7 +14,6 @@
     <root id="root">
       <element id="archive" name="JavaFXApp.jar">
         <element id="module-output" name="SemFourProjRep" />
-        <element id="library" level="module" name="ojdbc6.jar" module-name="SemFourProjRep" />
       </element>
     </root>
   </artifact>

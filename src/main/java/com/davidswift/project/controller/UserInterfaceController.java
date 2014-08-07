@@ -56,6 +56,12 @@ public class UserInterfaceController implements Initializable {
 
   @Override
   public void initialize(final URL url, final ResourceBundle resourceBundle) {
+    initUserTable();
+    initUserFields();
+
+  }
+
+  private void initUserTable() {
     try (Connection connection = DatabaseConnection.getInstance(); Statement statement = connection
         .createStatement(); ResultSet resultSet = statement
         .executeQuery(
@@ -95,8 +101,17 @@ public class UserInterfaceController implements Initializable {
     } catch (final SQLException e) {
       LOGGER.log(Level.SEVERE, "Unable to execute query", e);
     }
-    initUserFields();
-
+//    this.userTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener
+//        <UserProperty>() {
+//      @Override
+//      public void changed(
+//          final ObservableValue<? extends UserProperty> observableValue,
+//          final UserProperty userProperty,
+//          final UserProperty userProperty2
+//      ) {
+//
+//      }
+//    });
   }
 
   public void initUserFields() {
@@ -310,12 +325,14 @@ public class UserInterfaceController implements Initializable {
   }
 
   public void removeUser(final ActionEvent actionEvent) {
-    this.userTableView.getSelectionModel().selectedItemProperty().addListener(
-        (observableValue, userProperty, userProperty2) -> {
-          userProperty.removeFromDB();
-          this.usersList.remove(userProperty);
-
-        });
+//    final int selectedIndex = this.userTableView.getSelectionModel().getSelectedIndex();
+    final UserProperty selectedUserProperty = this.userTableView.getSelectionModel().getSelectedItem();
+    selectedUserProperty.removeFromDB();
+    this.usersList.remove(selectedUserProperty);
+    LOGGER.log(Level.INFO, this.usersList.toString());
+    LOGGER.log(Level.INFO, this.userTableView.getItems().toString() );
+//    this.userTableView.getItems().remove(selectedUserProperty);
+//    this.userTableView.getItems().remove(selectedIndex);
   }
 }
 

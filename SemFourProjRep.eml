@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="true" inheritJdk="true">
-	<output-test url="file://$MODULE_DIR$/out/test/SemFourProjRep"/>
+<component LANGUAGE_LEVEL="JDK_1_8" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/build/classes/test"/>
 	<exclude-output/>
 	<contentEntry url="file://$MODULE_DIR$">
 		<testFolder url="file://$MODULE_DIR$/src/test/java"/>
@@ -9,11 +9,10 @@
 		<excludeFolder url="file://$MODULE_DIR$/build"/>
 	</contentEntry>
 	<lib name="Gradle: unresolved_dependency___junit_junit_4_11" scope="TEST"/>
-	<lib name="ojdbc6.jar" scope="COMPILE">
-		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/ojdbc6.jar!/"/>
-	</lib>
+	<lib name="Gradle: jfxrt" scope="PROVIDED"/>
 	<levels>
 		<level name="Gradle: ojdbc6" value="project"/>
 		<level name="Gradle: unresolved_dependency___junit_junit_4_11" value="project"/>
+		<level name="Gradle: jfxrt" value="project"/>
 	</levels>
 </component>

@@ -28,8 +28,8 @@ public class Interface extends Application {
   @Override
   public void start(final Stage primaryStage) throws IOException {
     final Parent root = FXMLLoader.load(getClass().getResource(
-        "Interface.fxml"));
-    primaryStage.setTitle("FXML Welcome");
+        "/assets/project/Interface.fxml"));
+    primaryStage.setTitle("Timetable System");
     primaryStage.setScene(new Scene(root, 650, 400));
     primaryStage.setResizable(false);
     primaryStage.show();
