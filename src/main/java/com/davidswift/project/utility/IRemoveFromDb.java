@@ -1,6 +1,7 @@
 package com.davidswift.project.utility;
 
 import java.sql.*;
+import java.util.logging.*;
 
 /**
  * Project SemFourProjRep
@@ -11,14 +12,20 @@ import java.sql.*;
  *
  * Created by david on 6/29/2014.
  */
+@FunctionalInterface
 public interface IRemoveFromDb {
-  public default <T> void removeFromDB(String table, T t) throws SQLException {
-    String delete = "Delete from " + table + "table where " + table +
+  public static final Logger LOGGER = Logger.getLogger(IRemoveFromDb.class.getName());
+  public default <T> void removeFromDB(final String table, final T t) throws SQLException {
+    final String delete = "Delete from " + table + "TABLE where " + table +
         "_ID = "
         + t;
-    System.out.println(delete);
-    PreparedStatement ps = DatabaseConnection.getInstance().getConnection().prepareStatement
-        (delete);
-    ps.executeQuery();
+    LOGGER.log(Level.INFO, delete);
+
+    try (Connection connection = DatabaseConnection.getInstance();PreparedStatement ps = connection.prepareStatement
+        (delete)) {
+      ps.executeUpdate();
+      ps.close();
+    }
   }
+  public abstract void removeFromDB();
 }
