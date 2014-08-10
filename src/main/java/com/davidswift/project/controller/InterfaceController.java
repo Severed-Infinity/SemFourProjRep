@@ -17,7 +17,10 @@ import java.util.logging.*;
  */
 public class InterfaceController implements Initializable {
   public static final Logger LOGGER = Logger.getLogger(Class.class.getName());
+
+
   @Override
   public void initialize(final URL url, final ResourceBundle resourceBundle) {
   }
+
 }

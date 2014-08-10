@@ -76,7 +76,7 @@ public class UserInterfaceController implements Initializable {
           //              (UserType.PART_TIME.getType()).createUserPropertyTest()
       );
       while (resultSet.next()) {
-        this.usersList.add(UserPropertyBuilder.createUserPropertyTestBuilder().setUserID
+        this.usersList.add(UserPropertyBuilder.createUserPropertyBuilder().setUserID
             (resultSet.getInt(1))
             .setUserFirstName
                 (resultSet.getString(2))
@@ -101,17 +101,18 @@ public class UserInterfaceController implements Initializable {
     } catch (final SQLException e) {
       LOGGER.log(Level.SEVERE, "Unable to execute query", e);
     }
-//    this.userTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener
-//        <UserProperty>() {
-//      @Override
-//      public void changed(
-//          final ObservableValue<? extends UserProperty> observableValue,
-//          final UserProperty userProperty,
-//          final UserProperty userProperty2
-//      ) {
-//
-//      }
-//    });
+    //    this.userTableView.getSelectionModel().selectedItemProperty().addListener(new
+    // ChangeListener
+    //        <UserProperty>() {
+    //      @Override
+    //      public void changed(
+    //          final ObservableValue<? extends UserProperty> observableValue,
+    //          final UserProperty userProperty,
+    //          final UserProperty userProperty2
+    //      ) {
+    //
+    //      }
+    //    });
   }
 
   public void initUserFields() {
@@ -304,7 +305,7 @@ public class UserInterfaceController implements Initializable {
           "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
       LOGGER.log(Level.SEVERE, "Fields cannot not be empty");
     } else {
-      final UserProperty newUser = UserPropertyBuilder.createUserPropertyTestBuilder().setUserID(
+      final UserProperty newUser = UserPropertyBuilder.createUserPropertyBuilder().setUserID(
           setID
       ).setUserFirstName(this.newUserFirstName.getText())
           .setUserLastName(this.newUserLastName.getText()).setUserPassword(
@@ -325,14 +326,18 @@ public class UserInterfaceController implements Initializable {
   }
 
   public void removeUser(final ActionEvent actionEvent) {
-//    final int selectedIndex = this.userTableView.getSelectionModel().getSelectedIndex();
-    final UserProperty selectedUserProperty = this.userTableView.getSelectionModel().getSelectedItem();
-    selectedUserProperty.removeFromDB();
-    this.usersList.remove(selectedUserProperty);
-    LOGGER.log(Level.INFO, this.usersList.toString());
-    LOGGER.log(Level.INFO, this.userTableView.getItems().toString() );
-//    this.userTableView.getItems().remove(selectedUserProperty);
-//    this.userTableView.getItems().remove(selectedIndex);
+    //    final int selectedIndex = this.userTableView.getSelectionModel().getSelectedIndex();
+    final UserProperty selectedUserProperty = this.userTableView.getSelectionModel()
+        .getSelectedItem();
+    if (selectedUserProperty.userIDProperty().get() != 0) {
+      selectedUserProperty.removeFromDB();
+      this.usersList.remove(selectedUserProperty);
+      LOGGER.log(Level.INFO, this.usersList.toString());
+      LOGGER.log(Level.INFO, this.userTableView.getItems().toString());
+      //    this.userTableView.getItems().remove(selectedUserProperty);
+      //    this.userTableView.getItems().remove(selectedIndex);
+    }
+
   }
 }
 

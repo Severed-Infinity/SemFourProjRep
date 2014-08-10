@@ -50,6 +50,21 @@ public class Room implements IAddToDB, IRemoveFromDb {
     this.sharedRoomNumber = 0;
   }
 
+  public static Room createRoom(
+      final int roomNumber,
+      final int roomSeating,
+      final String department,
+      final boolean isLab,
+      final int sharedRoomNumber
+  ) {return new Room(roomNumber, roomSeating, department, isLab, sharedRoomNumber);}
+
+  public static Room createRoom(
+      final int roomNumber,
+      final int roomSeating,
+      final String department,
+      final boolean isLab
+  ) {return new Room(roomNumber, roomSeating, department, isLab); }
+
   @Override
   public String toString() {
     return "Room{" +
@@ -60,14 +75,6 @@ public class Room implements IAddToDB, IRemoveFromDb {
         ", sharedRoomNumber=" + this.sharedRoomNumber +
         '}';
   }
-
-  public static Room createRoom(
-      final int roomNumber,
-      final int roomSeating,
-      final String department,
-      final boolean isLab,
-      final int sharedRoomNumber
-  ) {return new Room(roomNumber, roomSeating, department, isLab, sharedRoomNumber);}
 
   public int getRoomID() {
     return this.roomID;
@@ -88,13 +95,6 @@ public class Room implements IAddToDB, IRemoveFromDb {
   public int getSharedRoomNumber() {
     return this.sharedRoomNumber;
   }
-
-  public static Room createRoom(
-      final int roomNumber,
-      final int roomSeating,
-      final String department,
-      final boolean isLab
-  ) {return new Room(roomNumber, roomSeating, department, isLab); }
 
   @Override
   public void addToDB() {

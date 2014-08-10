@@ -15,17 +15,19 @@ import java.util.logging.*;
 @FunctionalInterface
 public interface IRemoveFromDb {
   public static final Logger LOGGER = Logger.getLogger(IRemoveFromDb.class.getName());
+
   public default <T> void removeFromDB(final String table, final T t) throws SQLException {
     final String delete = "Delete from " + table + "TABLE where " + table +
         "_ID = "
         + t;
     LOGGER.log(Level.INFO, delete);
-
-    try (Connection connection = DatabaseConnection.getInstance();PreparedStatement ps = connection.prepareStatement
+    try (Connection connection = DatabaseConnection.getInstance(); PreparedStatement ps =
+        connection.prepareStatement
         (delete)) {
       ps.executeUpdate();
       ps.close();
     }
   }
+
   public abstract void removeFromDB();
 }

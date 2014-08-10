@@ -16,22 +16,22 @@ import javafx.stage.*;
 import java.io.*;
 import java.util.logging.*;
 
-public class Interface extends Application {
+public class MainInterface extends Application {
   public static final Logger LOGGER = Logger.getLogger(Class.class.getName());
-  //  private Interface() {super();}
+  //  private MainInterface() {super();}
 
   public static void main(final String... args) {
     launch(args);
   }
-  //  public static Interface createInterface() {return new Interface();}
+  //  public static MainInterface createInterface() {return new MainInterface();}
 
   @Override
   public void start(final Stage primaryStage) throws IOException {
     final Parent root = FXMLLoader.load(getClass().getResource(
-        "/assets/project/Interface.fxml"));
+        "/assets/project/fxml/Interface.fxml"));
     primaryStage.setTitle("Timetable System");
-    primaryStage.setScene(new Scene(root, 650, 400));
-    primaryStage.setResizable(false);
+    primaryStage.setScene(new Scene(root, 800, 600));
+    //    primaryStage.setResizable(false);
     primaryStage.show();
   }
 }

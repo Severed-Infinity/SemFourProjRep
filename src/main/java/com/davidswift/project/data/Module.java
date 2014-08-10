@@ -53,7 +53,7 @@ public class Module implements IAddToDB, IRemoveFromDb, IUpdateInDB {
   @Override
   public void update(final Object... args) {
     this.setModuleName((String)args[0]);
-//    this.setModuleLecturer((String)args[1]);
+    //    this.setModuleLecturer((String)args[1]);
   }
 
   public int getModuleID() {

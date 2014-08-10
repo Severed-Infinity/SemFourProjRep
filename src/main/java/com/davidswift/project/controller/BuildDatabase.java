@@ -120,13 +120,12 @@ public final class BuildDatabase {
         PreparedStatement preparedStatement = connection
             .prepareStatement(
                 sqlString)) {
-      LOGGER.log(Level.INFO, "Created table: CLASSTABLE");
       preparedStatement.executeUpdate();
+      LOGGER.log(Level.INFO, "Created table: CLASSTABLE");
     }
 
   }
 
-  //TODO change the order in which the delete is executed
   private void wipeDatabase() {
     try {
       wipeClassTable();

@@ -25,9 +25,9 @@ public interface IAddToDB {
     }
     stringBuilder.append("?)"); // end of insert statement
     final String addToDBString = stringBuilder.toString();
-//    System.out.println(addToDBString);//testing the output of the insert statement
-
-    try (Connection connection = DatabaseConnection.getInstance();PreparedStatement ps = connection.prepareStatement(
+    //    System.out.println(addToDBString);//testing the output of the insert statement
+    try (Connection connection = DatabaseConnection.getInstance(); PreparedStatement ps =
+        connection.prepareStatement(
         addToDBString)) {
       //running through the passed in arguments and finding there types
       for (final Object arg : args) {
@@ -49,6 +49,7 @@ public interface IAddToDB {
       ps.close();
     }
   }
+
   public abstract void addToDB();
 
 }

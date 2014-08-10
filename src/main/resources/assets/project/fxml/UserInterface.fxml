@@ -4,8 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.lang.*?>
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"
-            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+            prefWidth="200.0" xmlns="http://javafx.com/javafx/8"
             fx:controller="com.davidswift.project.controller.UserInterfaceController">
     <AnchorPane>
         <TableView fx:id="userTableView" layoutX="-1.0" layoutY="-2.0"

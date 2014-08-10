@@ -17,6 +17,7 @@ import java.util.logging.*;
  */
 public class CourseInterfaceController implements Initializable {
   public static final Logger LOGGER = Logger.getLogger(CourseInterfaceController.class.getName());
+
   @Override
   public void initialize(final URL url, final ResourceBundle resourceBundle) {
   }

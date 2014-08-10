@@ -142,8 +142,10 @@ public class UserProperty implements IAddToDB, IRemoveFromDb {
 
     private UserPropertyBuilder() {super();}
 
-    public static UserPropertyBuilder createUserPropertyTestBuilder() {return new
-        UserPropertyBuilder();}
+    public static UserPropertyBuilder createUserPropertyBuilder() {
+      return new
+          UserPropertyBuilder();
+    }
 
     public UserPropertyBuilder setUserID(final int userID) {
       this.userID = userID;
