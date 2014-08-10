@@ -15,7 +15,7 @@
           </padding>
       
           <stylesheets>
-              <URL value="@Base.css" />
+              <URL value="@../styles/Base.css" />
           </stylesheets>
           <columnConstraints>
               <ColumnConstraints />

@@ -10,7 +10,7 @@
     <AnchorPane>
         <TableView fx:id="userTableView" layoutX="-1.0" layoutY="-2.0"
                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" >
             <columns>
                 <TableColumn fx:id="userIDField" prefWidth="75.0" text="User ID"/>
                 <TableColumn fx:id="userFirstNameField" prefWidth="75.0" text="First Name"/>

@@ -2,6 +2,7 @@ package com.davidswift.project.controller;
 
 import com.davidswift.project.data.*;
 import com.davidswift.project.data.UserProperty.*;
+import com.davidswift.project.references.*;
 import com.davidswift.project.utility.*;
 import javafx.collections.*;
 import javafx.event.*;
@@ -101,18 +102,29 @@ public class UserInterfaceController implements Initializable {
     } catch (final SQLException e) {
       LOGGER.log(Level.SEVERE, "Unable to execute query", e);
     }
-    //    this.userTableView.getSelectionModel().selectedItemProperty().addListener(new
-    // ChangeListener
-    //        <UserProperty>() {
-    //      @Override
-    //      public void changed(
-    //          final ObservableValue<? extends UserProperty> observableValue,
-    //          final UserProperty userProperty,
-    //          final UserProperty userProperty2
-    //      ) {
-    //
-    //      }
-    //    });
+    this.userTableView.setOnMouseClicked(mouseEvent -> {
+      final UserProperty selectedUserProperty = UserInterfaceController.this.userTableView
+          .getSelectionModel()
+          .getSelectedItem();
+      if (selectedUserProperty != null) {
+        UserInterfaceController.this.newUserID.setText(String.valueOf(selectedUserProperty
+            .userIDProperty().get()));
+        UserInterfaceController.this.newUserFirstName.setText(selectedUserProperty
+            .userFirstNameProperty().get());
+        UserInterfaceController.this.newUserLastName.setText(selectedUserProperty
+            .userLastNameProperty().get());
+        UserInterfaceController.this.newUserPassword.setText(selectedUserProperty
+            .userPasswordProperty().get());
+        UserInterfaceController.this.newUserCourseID.setText(
+            String.valueOf(selectedUserProperty.courseIDProperty().get()));
+        UserInterfaceController.this.newUserType.getSelectionModel().select(
+            selectedUserProperty.userTypeProperty().get().equals
+                (UserType.ADMIN.getType()) ? 0 : selectedUserProperty.userTypeProperty().get()
+                .equals
+                    (UserType.FULL_TIME.getType()) ? 1 : 2);
+      }
+    });
+
   }
 
   public void initUserFields() {
@@ -327,8 +339,7 @@ public class UserInterfaceController implements Initializable {
 
   public void removeUser(final ActionEvent actionEvent) {
     //    final int selectedIndex = this.userTableView.getSelectionModel().getSelectedIndex();
-    final UserProperty selectedUserProperty = this.userTableView.getSelectionModel()
-        .getSelectedItem();
+    final UserProperty selectedUserProperty = selectUserProperty();
     if (selectedUserProperty.userIDProperty().get() != 0) {
       selectedUserProperty.removeFromDB();
       this.usersList.remove(selectedUserProperty);
@@ -338,6 +349,11 @@ public class UserInterfaceController implements Initializable {
       //    this.userTableView.getItems().remove(selectedIndex);
     }
 
+  }
+
+  private UserProperty selectUserProperty() {
+    return this.userTableView.getSelectionModel()
+        .getSelectedItem();
   }
 }
 

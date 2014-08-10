@@ -6,7 +6,7 @@
 
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.davidswift.project.controller.InterfaceController" stylesheets="@/assets/project/fxml/Base.css">
+            fx:controller="com.davidswift.project.controller.InterfaceController" stylesheets="@/assets/project/styles/Base.css">
 
     <children>
       <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0"  tabClosingPolicy="UNAVAILABLE">
