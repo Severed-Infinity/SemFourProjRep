@@ -9,13 +9,12 @@
    <children>
        <AnchorPane>
           <children>
-              <TableView fx:id="courseTableView" layoutX="-1.0" layoutY="-2.0">
+              <TableView fx:id="courseTableView" layoutX="-1.0" layoutY="-2.0" prefHeight="398.0" prefWidth="454.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <columns>
-                      <TableColumn fx:id="courseIDField" prefWidth="90.0" text="Course ID" />
-                      <TableColumn fx:id="courseNameField" prefWidth="90.0" text="Course Name" />
-                      <TableColumn fx:id="courseHeadField" prefWidth="90.0" text="Course Head" />
-                      <TableColumn fx:id="courseLengthField" prefWidth="90.0" text="Course Length" />
+                      <TableColumn fx:id="courseIDField" prefWidth="90.0" text="Room Number" />
+                      <TableColumn fx:id="courseNameField" prefWidth="90.0" text="Seating" />
                       <TableColumn fx:id="courseDepartmentField" prefWidth="90.0" text="Department" />
+                      <TableColumn fx:id="courseHeadField" prefWidth="90.0" text="Lab" />
       
                   </columns>
                   <columnResizePolicy>

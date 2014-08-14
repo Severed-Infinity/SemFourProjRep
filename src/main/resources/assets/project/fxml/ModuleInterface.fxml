@@ -5,17 +5,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.davidswift.project.controller.CourseInterfaceController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.davidswift.project.controller.ModuleInterfaceController">
    <children>
        <AnchorPane>
           <children>
-              <TableView fx:id="courseTableView" layoutX="-1.0" layoutY="-2.0">
+              <TableView fx:id="moduleTableView" layoutX="-1.0" layoutY="-2.0" prefHeight="400.0" prefWidth="455.0">
                   <columns>
+                      <TableColumn fx:id="moduleIDField" prefWidth="90.0" text="Module ID" />
+                      <TableColumn fx:id="moduleNameField" prefWidth="90.0" text="Module Name" />
+                      <TableColumn fx:id="moduleLecturerField" prefWidth="90.0" text="Module Lecturer" />
                       <TableColumn fx:id="courseIDField" prefWidth="90.0" text="Course ID" />
-                      <TableColumn fx:id="courseNameField" prefWidth="90.0" text="Course Name" />
-                      <TableColumn fx:id="courseHeadField" prefWidth="90.0" text="Course Head" />
-                      <TableColumn fx:id="courseLengthField" prefWidth="90.0" text="Course Length" />
-                      <TableColumn fx:id="courseDepartmentField" prefWidth="90.0" text="Department" />
       
                   </columns>
                   <columnResizePolicy>
@@ -31,16 +30,14 @@
                       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                   </padding>
                  <children>
+                     <Label text="Module ID" />
+                     <TextField fx:id="newModuleID" />
+                     <Label text="Module Name" />
+                     <TextField fx:id="newModuleName" />
+                     <Label text="Module Lecturer" />
+                     <TextField fx:id="newModuleLecturer" />
                      <Label text="Course ID" />
                      <TextField fx:id="newCourseID" />
-                     <Label text="Course Name" />
-                     <TextField fx:id="newCourseName" />
-                     <Label text="Course Length" />
-                     <TextField fx:id="newCourseLength" />
-                     <Label text="Course Department" />
-                     <TextField fx:id="newCourseDepartment" />
-                     <Label text="Course Head" />
-                     <TextField fx:id="newCourseHead" />
                  </children>
       
               </VBox>
@@ -51,9 +48,9 @@
                <Insets />
            </opaqueInsets>
           <children>
-              <Button fx:id="newCourse" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#addNewCourse" text="Add" />
-              <Button fx:id="updateCourse" mnemonicParsing="false" onAction="#updateCourse" text="Update" />
-              <Button fx:id="deleteCourse" mnemonicParsing="false" onAction="#removeCourse" text="Delete" />
+              <Button fx:id="newModule" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#addNewCourse" text="Add" />
+              <Button fx:id="updateModule" mnemonicParsing="false" onAction="#updateCourse" text="Update" />
+              <Button fx:id="deleteModule" mnemonicParsing="false" onAction="#removeCourse" text="Delete" />
           </children>
        </HBox>
        <HBox layoutX="469.0" layoutY="341.0">

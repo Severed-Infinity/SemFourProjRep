@@ -22,14 +22,9 @@ public final class Main {
 
   private Main() {super();}
 
-  //Testing code
   public static void main(final String... args) {
-    //build database
-//    LOGGER.log(Level.INFO, String.valueOf(DatabaseConnection.getInstance()));
-    //    BuildDatabase.createBuildDatabase();
     //    testData();
     Application.launch(LoginInterface.class, args);
-//    Application.launch(MainInterface.class, args);
   }
 
   public static void testData() {

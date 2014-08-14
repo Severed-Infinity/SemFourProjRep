@@ -9,11 +9,11 @@ import javafx.stage.*;
 import java.util.logging.*;
 
 public class LoginInterface extends Application {
-  public static final Logger LOGGER = Logger.getLogger(LoginInterface.class.getName());
+  private static final Logger LOGGER = Logger.getLogger(LoginInterface.class.getName());
   //  private FXMLExample() {}
   //
   //  public static FXMLExample createFXMLExample() {return new FXMLExample();}
-  public static Stage primaryStage;
+  private static Stage primaryStage;
 
   @Override
   public void start(final Stage stage) throws Exception {

@@ -1,8 +1,8 @@
 package com.davidswift.project.controller;
 
 import com.davidswift.project.data.*;
-import com.davidswift.project.data.UserProperty.*;
-import com.davidswift.project.references.*;
+import com.davidswift.project.model.*;
+import com.davidswift.project.model.UserProperty.*;
 import com.davidswift.project.utility.*;
 import javafx.collections.*;
 import javafx.event.*;
@@ -53,6 +53,7 @@ public class UserInterfaceController implements Initializable {
   public ChoiceBox newUserType;
   public Button newUser;
   public Button deleteUser;
+  public Button clearFields;
   private ObservableList<UserProperty> usersList;
 
   @Override
@@ -102,32 +103,31 @@ public class UserInterfaceController implements Initializable {
     } catch (final SQLException e) {
       LOGGER.log(Level.SEVERE, "Unable to execute query", e);
     }
-    this.userTableView.setOnMouseClicked(mouseEvent -> {
-      final UserProperty selectedUserProperty = UserInterfaceController.this.userTableView
-          .getSelectionModel()
-          .getSelectedItem();
-      if (selectedUserProperty != null) {
-        UserInterfaceController.this.newUserID.setText(String.valueOf(selectedUserProperty
-            .userIDProperty().get()));
-        UserInterfaceController.this.newUserFirstName.setText(selectedUserProperty
-            .userFirstNameProperty().get());
-        UserInterfaceController.this.newUserLastName.setText(selectedUserProperty
-            .userLastNameProperty().get());
-        UserInterfaceController.this.newUserPassword.setText(selectedUserProperty
-            .userPasswordProperty().get());
-        UserInterfaceController.this.newUserCourseID.setText(
-            String.valueOf(selectedUserProperty.courseIDProperty().get()));
-        UserInterfaceController.this.newUserType.getSelectionModel().select(
-            selectedUserProperty.userTypeProperty().get().equals
-                (UserType.ADMIN.getType()) ? 0 : selectedUserProperty.userTypeProperty().get()
-                .equals
-                    (UserType.FULL_TIME.getType()) ? 1 : 2);
-      }
-    });
-
+    //    this.userTableView.setOnMouseClicked(mouseEvent -> {
+    //      final UserProperty selectedUserProperty = UserInterfaceController.this.userTableView
+    //          .getSelectionModel()
+    //          .getSelectedItem();
+    //      if (selectedUserProperty != null) {
+    //        UserInterfaceController.this.newUserID.setText(String.valueOf(selectedUserProperty
+    //            .userIDProperty().get()));
+    //        UserInterfaceController.this.newUserFirstName.setText(selectedUserProperty
+    //            .userFirstNameProperty().get());
+    //        UserInterfaceController.this.newUserLastName.setText(selectedUserProperty
+    //            .userLastNameProperty().get());
+    //        UserInterfaceController.this.newUserPassword.setText(selectedUserProperty
+    //            .userPasswordProperty().get());
+    //        UserInterfaceController.this.newUserCourseID.setText(
+    //            String.valueOf(selectedUserProperty.courseIDProperty().get()));
+    //        UserInterfaceController.this.newUserType.getSelectionModel().select(
+    //            selectedUserProperty.userTypeProperty().get().equals
+    //                (UserType.ADMIN.getType()) ? 0 : selectedUserProperty.userTypeProperty().get()
+    //                .equals
+    //                    (UserType.FULL_TIME.getType()) ? 1 : 2);
+    //      }
+    //    });
   }
 
-  public void initUserFields() {
+  protected void initUserFields() {
     this.newUser.setDisable(true);
     final Pattern namePattern = Pattern.compile("[A-Z][a-z]+");
     final Pattern passwordPattern = Pattern.compile("[a-z 0-9]+");
@@ -327,13 +327,22 @@ public class UserInterfaceController implements Initializable {
           .createUserPropertyTest();
       newUser.addToDB();
       this.usersList.addAll(newUser);
-      this.newUserID.clear();
-      this.newUserFirstName.clear();
-      this.newUserLastName.clear();
-      this.newUserPassword.clear();
-      this.newUserCourseID.clear();
-      this.newUserType.getSelectionModel().select(1);
+      this.clearFields();
+
     }
+
+  }
+
+  @FXML
+  private void clearFields() {
+    this.newUserFirstName.clear();
+    this.newUserLastName.clear();
+    this.newUserPassword.clear();
+    this.newUserCourseID.clear();
+    this.newUserType.getSelectionModel().select(1);
+    this.newUserID.setStyle("-fx-border-color: transparent");
+    this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
+    this.newUserID.clear();
 
   }
 
@@ -355,5 +364,6 @@ public class UserInterfaceController implements Initializable {
     return this.userTableView.getSelectionModel()
         .getSelectedItem();
   }
+
 }
 

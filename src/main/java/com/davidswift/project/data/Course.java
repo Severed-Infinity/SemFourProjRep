@@ -16,7 +16,7 @@ import java.util.logging.*;
  * Created by david on 7/5/2014.
  */
 public class Course implements IAddToDB, IRemoveFromDb, IUpdateInDB {
-  public static final Logger LOGGER = Logger.getLogger(Course.class.getName());
+  private static final Logger LOGGER = Logger.getLogger(Course.class.getName());
   private final int courseID;
   private final String courseName;
   private final int courseLength;

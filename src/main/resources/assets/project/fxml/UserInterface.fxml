@@ -10,7 +10,7 @@
     <AnchorPane>
         <TableView fx:id="userTableView" layoutX="-1.0" layoutY="-2.0"
                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" >
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columns>
                 <TableColumn fx:id="userIDField" prefWidth="75.0" text="User ID"/>
                 <TableColumn fx:id="userFirstNameField" prefWidth="75.0" text="First Name"/>
@@ -49,13 +49,15 @@
             </ChoiceBox>
         </VBox>
     </AnchorPane>
-    <HBox alignment="CENTER" layoutX="469.0" layoutY="337.0" spacing="10.0">
+
+    <HBox alignment="CENTER" layoutX="475.0" layoutY="333.0" spacing="10.0">
         <opaqueInsets>
             <Insets/>
         </opaqueInsets>
+
         <Button fx:id="newUser" onAction="#addNewUser" alignment="TOP_CENTER"
                 mnemonicParsing="false" text="Add"/>
-        <Button mnemonicParsing="false" text="Update"/>
         <Button fx:id="deleteUser" onAction="#removeUser" mnemonicParsing="false" text="Delete"/>
+        <Button fx:id="clearFields" onAction="#clearFields" mnemonicParsing="false" text="Clear"/>
     </HBox>
 </AnchorPane>

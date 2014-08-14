@@ -74,6 +74,15 @@ public class DatabaseConnection implements Serializable {
     return this.connection;
   }
 
+  public void closeConnection(){
+    try {
+      LOGGER.log(Level.INFO, "Closing database connection...");
+     this.connection.close();
+    } catch (final SQLException e) {
+      LOGGER.log(Level.SEVERE, "Unable to close database connection", e);
+    }
+  }
+
   public static void setDblocation(final DBLocation dblocation) {
     DatabaseConnectionHolder.setDblocation(dblocation);
   }

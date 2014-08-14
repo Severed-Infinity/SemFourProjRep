@@ -28,9 +28,9 @@ public class MainInterface extends Application {
   @Override
   public void start(final Stage primaryStage) throws IOException {
     final Parent root = FXMLLoader.load(getClass().getResource(
-        "/assets/project/fxml/Interface.fxml"));
+        "/assets/project/fxml/MainInterface.fxml"));
     primaryStage.setTitle("Timetable System");
-    primaryStage.setScene(new Scene(root, 800, 600));
+    primaryStage.setScene(new Scene(root, 800, 700));
     //    primaryStage.setResizable(false);
     primaryStage.show();
   }

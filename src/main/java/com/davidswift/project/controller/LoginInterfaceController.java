@@ -32,7 +32,8 @@
 package com.davidswift.project.controller;
 
 import com.davidswift.project.data.*;
-import com.davidswift.project.data.UserProperty.*;
+import com.davidswift.project.model.*;
+import com.davidswift.project.model.UserProperty.*;
 import com.davidswift.project.references.*;
 import com.davidswift.project.utility.*;
 import javafx.event.*;
@@ -50,7 +51,7 @@ import java.util.*;
 import java.util.logging.*;
 
 public class LoginInterfaceController implements Initializable {
-  public static final Logger LOGGER = Logger.getLogger(LoginInterfaceController.class.getName());
+  private static final Logger LOGGER = Logger.getLogger(LoginInterfaceController.class.getName());
   @FXML
   private PasswordField passwordFieldInput;
   @FXML
@@ -64,7 +65,6 @@ public class LoginInterfaceController implements Initializable {
   @FXML
   private Text actiontarget;
   private Stage prevStage;
-  private ToggleGroup toggleGroup;
 
   @FXML
   protected synchronized void handleSubmitButtonAction(final ActionEvent event) {
@@ -112,7 +112,7 @@ public class LoginInterfaceController implements Initializable {
     }
   }
 
-  public void loadMain() throws IOException {
+  protected void loadMain() throws IOException {
     final Stage stage = new Stage();
     stage.setTitle("Database Management");
     final Pane pane = FXMLLoader.load(getClass().getResource("/assets/project/fxml/Interface" +
@@ -120,10 +120,11 @@ public class LoginInterfaceController implements Initializable {
     final Scene scene = new Scene(pane);
     stage.setScene(scene);
     this.prevStage.close();
+    InterfaceController.setPrevStage(stage);
     stage.show();
   }
 
-  public void locationCheck() {
+  protected void locationCheck() {
     if (this.local.isSelected()) {
       DatabaseConnection.setDblocation(DBLocation.LOCAL);
 
@@ -135,9 +136,9 @@ public class LoginInterfaceController implements Initializable {
 
   @Override
   public void initialize(final URL url, final ResourceBundle resourceBundle) {
-    this.toggleGroup = new ToggleGroup();
-    this.local.setToggleGroup(this.toggleGroup);
-    this.college.setToggleGroup(this.toggleGroup);
+    final ToggleGroup toggleGroup = new ToggleGroup();
+    this.local.setToggleGroup(toggleGroup);
+    this.college.setToggleGroup(toggleGroup);
     this.local.setSelected(true);
   }
 

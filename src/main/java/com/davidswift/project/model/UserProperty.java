@@ -1,4 +1,4 @@
-package com.davidswift.project.data;
+package com.davidswift.project.model;
 
 import com.davidswift.project.references.*;
 import com.davidswift.project.utility.*;
@@ -99,7 +99,7 @@ public class UserProperty implements IAddToDB, IRemoveFromDb {
     }
   }
 
-  public String getUserFirstName() {
+  protected String getUserFirstName() {
     return this.userFirstName.get();
   }
 
