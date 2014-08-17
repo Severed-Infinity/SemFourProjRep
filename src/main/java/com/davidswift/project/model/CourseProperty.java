@@ -48,10 +48,6 @@ public class CourseProperty implements IAddToDB, IRemoveFromDb, IUpdateInDB {
     return this.courseLength;
   }
 
-  public String getDepartment() {
-    return this.department.get();
-  }
-
   public SimpleStringProperty departmentProperty() {
     return this.department;
   }
@@ -62,7 +58,13 @@ public class CourseProperty implements IAddToDB, IRemoveFromDb, IUpdateInDB {
 
   @Override
   public void update(final Object... args) {
-    this.setCourseHead((SimpleStringProperty)args[0]);
+    try {
+      this.updateInDB(Table.COURSE.getValue(), new String[] {"COURSE_HEAD"}, args);
+      this.setCourseHead(new SimpleStringProperty((String)args[0]));
+    } catch (final SQLException e) {
+      LOGGER.log(Level.SEVERE, "Unable to update course", e);
+    }
+
   }
 
   @Override
@@ -77,23 +79,27 @@ public class CourseProperty implements IAddToDB, IRemoveFromDb, IUpdateInDB {
     }
   }
 
-  public int getCourseID() {
+  protected String getDepartment() {
+    return this.department.get();
+  }
+
+  protected int getCourseID() {
     return this.courseID.get();
   }
 
-  public String getCourseName() {
+  protected String getCourseName() {
     return this.courseName.get();
   }
 
-  public int getCourseLength() {
+  protected int getCourseLength() {
     return this.courseLength.get();
   }
 
-  public String getCourseHead() {
+  protected String getCourseHead() {
     return this.courseHead.get();
   }
 
-  public void setCourseHead(final SimpleStringProperty courseHead) {
+  protected void setCourseHead(final SimpleStringProperty courseHead) {
     this.courseHead = courseHead;
   }
 

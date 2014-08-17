@@ -23,8 +23,8 @@ import java.util.logging.*;
  *
  * Created by david on 7/28/2014.
  */
-public class InterfaceController implements Initializable {
-  public static final Logger LOGGER = Logger.getLogger(Class.class.getName());
+public class MainInterfaceController implements Initializable {
+  private static final Logger LOGGER = Logger.getLogger(Class.class.getName());
   private static Stage prevStage;
   public Button logout;
 
@@ -62,6 +62,7 @@ public class InterfaceController implements Initializable {
         ".fxml"));
     final Scene scene = new Scene(pane);
     stage.setScene(scene);
+    LoginInterfaceController.setPrevStage(stage);
     prevStage.close();
     stage.show();
   }

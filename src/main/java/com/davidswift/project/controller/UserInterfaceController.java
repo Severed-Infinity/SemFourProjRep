@@ -347,15 +347,10 @@ public class UserInterfaceController implements Initializable {
   }
 
   public void removeUser(final ActionEvent actionEvent) {
-    //    final int selectedIndex = this.userTableView.getSelectionModel().getSelectedIndex();
     final UserProperty selectedUserProperty = selectUserProperty();
     if (selectedUserProperty.userIDProperty().get() != 0) {
       selectedUserProperty.removeFromDB();
       this.usersList.remove(selectedUserProperty);
-      LOGGER.log(Level.INFO, this.usersList.toString());
-      LOGGER.log(Level.INFO, this.userTableView.getItems().toString());
-      //    this.userTableView.getItems().remove(selectedUserProperty);
-      //    this.userTableView.getItems().remove(selectedIndex);
     }
 
   }

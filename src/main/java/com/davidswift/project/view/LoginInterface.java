@@ -10,9 +10,6 @@ import java.util.logging.*;
 
 public class LoginInterface extends Application {
   private static final Logger LOGGER = Logger.getLogger(LoginInterface.class.getName());
-  //  private FXMLExample() {}
-  //
-  //  public static FXMLExample createFXMLExample() {return new FXMLExample();}
   private static Stage primaryStage;
 
   @Override
@@ -21,10 +18,9 @@ public class LoginInterface extends Application {
     final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
         ("/assets/project/fxml/LoginInterface.fxml"));
     final Parent root = fxmlLoader.load();
-    final LoginInterfaceController controller = fxmlLoader
-        .getController();
-    LOGGER.log(Level.INFO, controller.toString());
-    controller.setPrevStage(primaryStage);
+//    final LoginInterfaceController controller = fxmlLoader
+//        .getController();
+    LoginInterfaceController.setPrevStage(stage);
     stage.setTitle("Welcome");
     final Scene scene = new Scene(root);
     stage.setScene(scene);

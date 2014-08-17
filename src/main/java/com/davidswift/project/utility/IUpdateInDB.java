@@ -51,7 +51,7 @@ public interface IUpdateInDB {
       }
       LOGGER.log(Level.INFO, String.valueOf(update));
       ps.executeUpdate();
-      this.update(args);
+
       ps.close();
     }
   }

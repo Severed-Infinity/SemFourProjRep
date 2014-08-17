@@ -40,7 +40,7 @@ import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.input.*;
 import javafx.scene.text.*;
 import javafx.stage.*;
 
@@ -53,6 +53,8 @@ import java.util.logging.*;
 public class LoginInterfaceController implements Initializable {
   private static final Logger LOGGER = Logger.getLogger(LoginInterfaceController.class.getName());
   @FXML
+  public Button login;
+  @FXML
   private PasswordField passwordFieldInput;
   @FXML
   private RadioButton local;
@@ -64,10 +66,14 @@ public class LoginInterfaceController implements Initializable {
   private CheckBox buildDatabase;
   @FXML
   private Text actiontarget;
-  private Stage prevStage;
+  private static Stage prevStage;
 
   @FXML
   protected synchronized void handleSubmitButtonAction(final ActionEvent event) {
+    loginProcess();
+  }
+
+  private void loginProcess() {
     locationCheck();
     if (this.buildDatabase.isSelected()) {
       BuildDatabase.createBuildDatabase();
@@ -115,12 +121,17 @@ public class LoginInterfaceController implements Initializable {
   protected void loadMain() throws IOException {
     final Stage stage = new Stage();
     stage.setTitle("Database Management");
-    final Pane pane = FXMLLoader.load(getClass().getResource("/assets/project/fxml/Interface" +
-        ".fxml"));
-    final Scene scene = new Scene(pane);
+    final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
+        ("/assets/project/fxml/MainInterface.fxml"));
+    final Parent root = fxmlLoader.load();
+    //    final Pane pane = FXMLLoader.load(getClass().getResource
+    // ("/assets/project/fxml/MainInterface" +
+    //        ".fxml"));
+    final Scene scene = new Scene(root);
     stage.setScene(scene);
-    this.prevStage.close();
-    InterfaceController.setPrevStage(stage);
+    //TODO second login after logout returns a null pointer
+    prevStage.close();
+    MainInterfaceController.setPrevStage(stage);
     stage.show();
   }
 
@@ -140,14 +151,20 @@ public class LoginInterfaceController implements Initializable {
     this.local.setToggleGroup(toggleGroup);
     this.college.setToggleGroup(toggleGroup);
     this.local.setSelected(true);
+    this.login.setOnKeyPressed(keyEvent -> {
+      if (keyEvent.getCode() == KeyCode.ENTER) {
+        loginProcess();
+      }
+    });
   }
 
   public Stage getPrevStage() {
-    return this.prevStage;
+    return prevStage;
   }
 
-  public void setPrevStage(final Stage prevStage) {
-    this.prevStage = prevStage;
+  public static void setPrevStage(final Stage stage) {
+    prevStage = stage;
   }
+
 }
 

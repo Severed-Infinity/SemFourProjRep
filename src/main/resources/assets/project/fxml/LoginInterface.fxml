@@ -4,17 +4,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import java.net.*?>
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.davidswift.project.controller.LoginInterfaceController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"
+            fx:controller="com.davidswift.project.controller.LoginInterfaceController"
+            stylesheets="@/assets/project/styles/base.css">
     <GridPane alignment="center" hgap="10" styleClass="root" vgap="10">
         <padding>
             <Insets bottom="10" left="25" right="25" top="25"/>
         </padding>
 
-        <stylesheets>
-            <URL value="@../styles/Base.css"/>
-        </stylesheets>
         <columnConstraints>
             <ColumnConstraints/>
             <ColumnConstraints/>
@@ -51,9 +48,7 @@
 
         <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1"
               GridPane.rowIndex="6">
-            <children>
-                <Button onAction="#handleSubmitButtonAction" text="Sign In"/>
-            </children>
+            <Button fx:id="login" onAction="#handleSubmitButtonAction" text="Sign In"/>
         </HBox>
 
         <Text fx:id="actiontarget" GridPane.columnIndex="0" GridPane.columnSpan="2"
