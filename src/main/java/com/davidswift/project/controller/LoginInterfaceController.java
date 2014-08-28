@@ -31,8 +31,10 @@
  */
 package com.davidswift.project.controller;
 
-import com.davidswift.project.data.*;
 import com.davidswift.project.model.*;
+import com.davidswift.project.model.ClassProperty.*;
+import com.davidswift.project.model.CourseProperty.*;
+import com.davidswift.project.model.ModuleProperty.*;
 import com.davidswift.project.model.UserProperty.*;
 import com.davidswift.project.references.*;
 import com.davidswift.project.utility.*;
@@ -47,11 +49,13 @@ import javafx.stage.*;
 import java.io.*;
 import java.net.*;
 import java.sql.*;
+import java.time.*;
 import java.util.*;
 import java.util.logging.*;
 
 public class LoginInterfaceController implements Initializable {
   private static final Logger LOGGER = Logger.getLogger(LoginInterfaceController.class.getName());
+  private static Stage prevStage;
   @FXML
   public Button login;
   @FXML
@@ -66,7 +70,6 @@ public class LoginInterfaceController implements Initializable {
   private CheckBox buildDatabase;
   @FXML
   private Text actiontarget;
-  private static Stage prevStage;
 
   @FXML
   protected synchronized void handleSubmitButtonAction(final ActionEvent event) {
@@ -78,21 +81,34 @@ public class LoginInterfaceController implements Initializable {
     if (this.buildDatabase.isSelected()) {
       BuildDatabase.createBuildDatabase();
       try {
-        final Course defaultCourse = Course.createCourse(0, "Admin", "Admin", 0, "admin");
+        //TODO add default module
+        final CourseProperty defaultCourse = CoursePropertyBuilder.createCoursePropertyBuilder()
+            .setCourseID(0).setCourseName("Admin").setCourseHead("Admin").setCourseLength(0)
+            .setDepartment("admin").createCourseProperty();
         defaultCourse.addToDB();
         final UserProperty defaultAdmin = UserPropertyBuilder.createUserPropertyBuilder()
             .setUserID(0)
             .setUserFirstName("Admin").setUserLastName("Admin").setUserPassword("admin")
             .setCourseID(0).setUserType(UserType.ADMIN.getType()).createUserPropertyTest();
         defaultAdmin.addToDB();
+        final ModuleProperty defaultModule = ModulePropertyBuilder.createModulePropertyBuilder()
+            .setModuleID(0).setModuleName("Admin").setModuleLecturer("Admin").setCourseID(0)
+            .createModuleProperty();
+        defaultModule.addToDB();
+        final ClassProperty defaultClass = ClassPropertyBuilder.createClassPropertyBuilder()
+            .setClassID(0).setDay(String.valueOf(DayOfWeek.SUNDAY)).setTimeSlot(12.00)
+            .setRoomNumber(1).setModuleID(0).createClassProperty();
+        defaultClass.addToDB();
         loadMain();
       } catch (final IOException e) {
         LOGGER.log(Level.SEVERE, "Could not load main screen", e);
       }
     } else {
-      try (Connection connection = DatabaseConnection.getInstance(); Statement statement =
-          connection.createStatement(); ResultSet resultSet =
-          statement.executeQuery("SELECT * FROM USERTABLE")) {
+      try (Connection connection = DatabaseConnection.getInstance(); PreparedStatement
+          preparedStatement = connection
+          .prepareStatement("SELECT * FROM USERTABLE")
+      ) {
+        final ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
           if (resultSet.getInt(1) ==
               Integer.parseInt(this.idFieldInput.getText()) && resultSet.getString(4).equals(this
@@ -129,7 +145,6 @@ public class LoginInterfaceController implements Initializable {
     //        ".fxml"));
     final Scene scene = new Scene(root);
     stage.setScene(scene);
-    //TODO second login after logout returns a null pointer
     prevStage.close();
     MainInterfaceController.setPrevStage(stage);
     stage.show();

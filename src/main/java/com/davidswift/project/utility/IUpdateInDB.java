@@ -45,6 +45,8 @@ public interface IUpdateInDB {
           ps.setDouble(i++, (Double)arg);
         } else if (arg instanceof Float) {
           ps.setFloat(i++, (Float)arg);
+        } else if (arg instanceof Boolean) {
+          ps.setString(i++, String.valueOf((Boolean)arg));
         } else {
           ps.setString(i++, (String)arg);
         }

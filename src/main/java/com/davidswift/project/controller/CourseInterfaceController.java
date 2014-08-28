@@ -13,6 +13,7 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.*;
 import java.util.regex.*;
+import java.util.stream.*;
 
 /**
  * Project SemFourProjRep
@@ -161,27 +162,29 @@ public class CourseInterfaceController implements Initializable {
     this.newCourseID.setPromptText("Enter identification number");
     this.newCourseID.textProperty().addListener((observableValue, s, s2) -> {
       Matcher matcher = idPattern.matcher(s2);
-      boolean matches = this.coursesList.stream().anyMatch(course -> Integer.parseInt(s2) == course
-          .courseIDProperty().get());
-      if (matcher.matches()) {
-        this.newCourseID.setText(s2);
-        this.newCourseID.setStyle("-fx-border-color: transparent;");
-        this.newCourseID.setTooltip(new Tooltip("Must be Numeric Characters only"));
-        this.newCourse.setDisable(false);
-        if (matches) {
+      try (Stream<CourseProperty> coursePropertyStream = this.coursesList.stream()) {
+        boolean matches = coursePropertyStream.anyMatch(course -> Integer.parseInt(s2) == course
+            .courseIDProperty().get());
+        if (matcher.matches()) {
+          this.newCourseID.setText(s2);
+          this.newCourseID.setStyle("-fx-border-color: transparent;");
+          this.newCourseID.setTooltip(new Tooltip("Must be Numeric Characters only"));
+          this.newCourse.setDisable(false);
+          if (matches) {
+            this.newCourseID.setStyle(
+                "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
+            this.newCourseID.setTooltip(new Tooltip("This ID is already assigned"));
+            this.newCourse.setDisable(true);
+          }
+        } else if (this.newCourseID.getText().isEmpty()) {
+          this.newCourseID.setStyle("-fx-border-color: transparent");
+          this.newCourseID.setTooltip(new Tooltip("Must be Numeric Characters only"));
+        } else {
           this.newCourseID.setStyle(
               "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
-          this.newCourseID.setTooltip(new Tooltip("This ID is already assigned"));
+          this.newCourseID.setTooltip(new Tooltip("Must be Numeric Characters only"));
           this.newCourse.setDisable(true);
         }
-      } else if (this.newCourseID.getText().isEmpty()) {
-        this.newCourseID.setStyle("-fx-border-color: transparent");
-        this.newCourseID.setTooltip(new Tooltip("Must be Numeric Characters only"));
-      } else {
-        this.newCourseID.setStyle(
-            "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
-        this.newCourseID.setTooltip(new Tooltip("Must be Numeric Characters only"));
-        this.newCourse.setDisable(true);
       }
     });
   }
@@ -297,7 +300,7 @@ public class CourseInterfaceController implements Initializable {
     final CourseProperty selectedCourseProperty = selectCourseProperty();
     selectedCourseProperty.update(this.newCourseHead.getText(),
         selectedCourseProperty.courseIDProperty().get());
-
+    //TODO update table view without logging out
     clearFields();
   }
 

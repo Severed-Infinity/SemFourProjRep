@@ -18,8 +18,8 @@ public class LoginInterface extends Application {
     final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
         ("/assets/project/fxml/LoginInterface.fxml"));
     final Parent root = fxmlLoader.load();
-//    final LoginInterfaceController controller = fxmlLoader
-//        .getController();
+    //    final LoginInterfaceController controller = fxmlLoader
+    //        .getController();
     LoginInterfaceController.setPrevStage(stage);
     stage.setTitle("Welcome");
     final Scene scene = new Scene(root);

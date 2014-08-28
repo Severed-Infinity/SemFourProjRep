@@ -28,7 +28,7 @@ public interface IAddToDB {
     //    System.out.println(addToDBString);//testing the output of the insert statement
     try (Connection connection = DatabaseConnection.getInstance(); PreparedStatement ps =
         connection.prepareStatement(
-        addToDBString)) {
+            addToDBString)) {
       //running through the passed in arguments and finding there types
       for (final Object arg : args) {
         if (arg instanceof Date) {
@@ -41,6 +41,8 @@ public interface IAddToDB {
           ps.setDouble(i++, (Double)arg);
         } else if (arg instanceof Float) {
           ps.setFloat(i++, (Float)arg);
+        } else if(arg instanceof Boolean) {
+          ps.setString(i++, String.valueOf((Boolean)arg));
         } else {
           ps.setString(i++, (String)arg);
         }

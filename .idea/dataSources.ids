@@ -329,13 +329,14 @@
       <index name="APEX$_WS_WEBPG_SECHIST_IDX1" unique="true" columns="WS_APP_ID,WEBPAGE_ID,SECTION_ID"/>
     </table>
     <table name="CLASSTABLE" schema="ADMIN" catalog="" type="TABLE">
+      <column name="CLASS_ID" sqlType="NUMBER" precision="0" scale="-127" nullable="false" jdbcType="3"/>
+      <column name="DAY" sqlType="VARCHAR2" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="TIME_SLOT" sqlType="FLOAT" precision="126" scale="0" nullable="false" jdbcType="6"/>
       <column name="ROOM_ID" sqlType="NUMBER" precision="0" scale="-127" nullable="false" jdbcType="3"/>
       <column name="MODULE_ID" sqlType="NUMBER" precision="0" scale="-127" nullable="false" jdbcType="3"/>
-      <column name="DAY" sqlType="VARCHAR2" precision="10" scale="0" nullable="false" jdbcType="12"/>
-      <column name="TIME_SLOT" sqlType="VARCHAR2" precision="5" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="SYS_C0015097" columns="ROOM_ID,MODULE_ID"/>
-      <foreign-key name="SYS_C0015099" columns="MODULE_ID" ref-table="MODULETABLE" ref-schema="ADMIN" ref-catalog="" ref-columns="MODULE_ID" update-rule="0" delete-rule="1" deferrability="2"/>
-      <foreign-key name="SYS_C0015098" columns="ROOM_ID" ref-table="ROOMTABLE" ref-schema="ADMIN" ref-catalog="" ref-columns="ROOM_ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <primary-key name="SYS_C0015699" columns="CLASS_ID,DAY,TIME_SLOT,ROOM_ID"/>
+      <foreign-key name="SYS_C0015701" columns="MODULE_ID" ref-table="MODULETABLE" ref-schema="ADMIN" ref-catalog="" ref-columns="MODULE_ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="SYS_C0015700" columns="ROOM_ID" ref-table="ROOMTABLE" ref-schema="ADMIN" ref-catalog="" ref-columns="ROOM_ID" update-rule="0" delete-rule="1" deferrability="2"/>
     </table>
     <table name="COURSETABLE" schema="ADMIN" catalog="" type="TABLE">
       <column name="COURSE_ID" sqlType="NUMBER" precision="0" scale="-127" nullable="false" jdbcType="3"/>
@@ -343,9 +344,9 @@
       <column name="COURSE_HEAD" sqlType="VARCHAR2" precision="30" scale="0" nullable="false" jdbcType="12"/>
       <column name="COURSE_LENGTH" sqlType="NUMBER" precision="0" scale="-127" nullable="false" jdbcType="3"/>
       <column name="DEPARTMENT" sqlType="VARCHAR2" precision="50" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="SYS_C0015080" columns="COURSE_ID"/>
-      <exported-key name="SYS_C0015088" table="MODULETABLE" schema="ADMIN" catalog="" columns="COURSE_ID"/>
-      <exported-key name="SYS_C0015083" table="USERTABLE" schema="ADMIN" catalog="" columns="COURSE_ID"/>
+      <primary-key name="SYS_C0015655" columns="COURSE_ID"/>
+      <exported-key name="SYS_C0015663" table="MODULETABLE" schema="ADMIN" catalog="" columns="COURSE_ID"/>
+      <exported-key name="SYS_C0015658" table="USERTABLE" schema="ADMIN" catalog="" columns="COURSE_ID"/>
     </table>
     <table name="DEMO_CUSTOMERS" schema="ADMIN" catalog="" type="TABLE">
       <column name="CUSTOMER_ID" sqlType="NUMBER" precision="0" scale="-127" nullable="false" jdbcType="3" version="true"/>
@@ -447,9 +448,9 @@
       <column name="MODULE_NAME" sqlType="VARCHAR2" precision="50" scale="0" nullable="false" jdbcType="12"/>
       <column name="MODULE_LECTURER" sqlType="VARCHAR2" precision="30" scale="0" nullable="true" jdbcType="12"/>
       <column name="COURSE_ID" sqlType="NUMBER" precision="0" scale="-127" nullable="false" jdbcType="3"/>
-      <primary-key name="SYS_C0015087" columns="MODULE_ID"/>
-      <foreign-key name="SYS_C0015088" columns="COURSE_ID" ref-table="COURSETABLE" ref-schema="ADMIN" ref-catalog="" ref-columns="COURSE_ID" update-rule="0" delete-rule="1" deferrability="2"/>
-      <exported-key name="SYS_C0015099" table="CLASSTABLE" schema="ADMIN" catalog="" columns="MODULE_ID"/>
+      <primary-key name="SYS_C0015662" columns="MODULE_ID"/>
+      <foreign-key name="SYS_C0015663" columns="COURSE_ID" ref-table="COURSETABLE" ref-schema="ADMIN" ref-catalog="" ref-columns="COURSE_ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <exported-key name="SYS_C0015701" table="CLASSTABLE" schema="ADMIN" catalog="" columns="MODULE_ID"/>
     </table>
     <table name="ROOMTABLE" schema="ADMIN" catalog="" type="TABLE">
       <column name="ROOM_ID" sqlType="NUMBER" precision="0" scale="-127" nullable="false" jdbcType="3"/>
@@ -457,8 +458,8 @@
       <column name="DEPARTMENT" sqlType="VARCHAR2" precision="15" scale="0" nullable="true" jdbcType="12"/>
       <column name="LAB" sqlType="VARCHAR2" precision="5" scale="0" nullable="false" jdbcType="12"/>
       <column name="SHARED_ROOM_NUMBER" sqlType="NUMBER" precision="0" scale="-127" nullable="true" jdbcType="3"/>
-      <primary-key name="SYS_C0015092" columns="ROOM_ID"/>
-      <exported-key name="SYS_C0015098" table="CLASSTABLE" schema="ADMIN" catalog="" columns="ROOM_ID"/>
+      <primary-key name="SYS_C0015667" columns="ROOM_ID"/>
+      <exported-key name="SYS_C0015700" table="CLASSTABLE" schema="ADMIN" catalog="" columns="ROOM_ID"/>
     </table>
     <table name="USERTABLE" schema="ADMIN" catalog="" type="TABLE">
       <column name="USER_ID" sqlType="NUMBER" precision="0" scale="-127" nullable="false" jdbcType="3"/>
@@ -467,8 +468,8 @@
       <column name="USER_PASSWORD" sqlType="VARCHAR2" precision="10" scale="0" nullable="true" jdbcType="12"/>
       <column name="COURSE_ID" sqlType="NUMBER" precision="0" scale="-127" nullable="true" jdbcType="3"/>
       <column name="TYPE" sqlType="VARCHAR2" precision="10" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="SYS_C0015082" columns="USER_ID"/>
-      <foreign-key name="SYS_C0015083" columns="COURSE_ID" ref-table="COURSETABLE" ref-schema="ADMIN" ref-catalog="" ref-columns="COURSE_ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <primary-key name="SYS_C0015657" columns="USER_ID"/>
+      <foreign-key name="SYS_C0015658" columns="COURSE_ID" ref-table="COURSETABLE" ref-schema="ADMIN" ref-catalog="" ref-columns="COURSE_ID" update-rule="0" delete-rule="1" deferrability="2"/>
     </table>
     <procedure name="CUSTOM_AUTH" schema="ADMIN" catalog="" type="2" remarks="U3RhbmRhbG9uZSBwcm9jZWR1cmUgb3IgZnVuY3Rpb24=">
       <prototype>

@@ -27,6 +27,7 @@ public class MainInterfaceController implements Initializable {
   private static final Logger LOGGER = Logger.getLogger(Class.class.getName());
   private static Stage prevStage;
   public Button logout;
+  public Button printTimetable;
 
   public static Stage getPrevStage() {
     return prevStage;
@@ -46,12 +47,13 @@ public class MainInterfaceController implements Initializable {
     } catch (final IOException e) {
       LOGGER.log(Level.SEVERE, "Unable to logout", e);
     } finally {
-      try {
+      try (Connection connection = DatabaseConnection.getInstance()) {
         LOGGER.log(Level.INFO, "Closing Database Connection...");
-        DatabaseConnection.getInstance().close();
+        connection.close();
       } catch (final SQLException e) {
         LOGGER.log(Level.SEVERE, "Unable to close database connection", e);
       }
+
     }
   }
 
@@ -65,5 +67,9 @@ public class MainInterfaceController implements Initializable {
     LoginInterfaceController.setPrevStage(stage);
     prevStage.close();
     stage.show();
+  }
+
+  public void printTimetableHandler(final ActionEvent actionEvent) {
+    PrintTimetable.createPrintTimetable(0);
   }
 }

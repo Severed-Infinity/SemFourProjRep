@@ -83,7 +83,7 @@ public class CourseProperty implements IAddToDB, IRemoveFromDb, IUpdateInDB {
     return this.department.get();
   }
 
-  protected int getCourseID() {
+  public int getCourseID() {
     return this.courseID.get();
   }
 

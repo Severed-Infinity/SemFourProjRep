@@ -1,7 +1,7 @@
 package com.davidswift.project.controller;
 
-import com.davidswift.project.data.*;
 import com.davidswift.project.model.*;
+import com.davidswift.project.model.CourseProperty.*;
 import com.davidswift.project.model.UserProperty.*;
 import com.davidswift.project.utility.*;
 import javafx.collections.*;
@@ -14,6 +14,7 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.*;
 import java.util.regex.*;
+import java.util.stream.*;
 
 /**
  * Project SemFourProjRep
@@ -146,58 +147,67 @@ public class UserInterfaceController implements Initializable {
     this.newUserID.setPromptText("Enter identification number");
     this.newUserID.textProperty().addListener((observableValue, s, s2) -> {
       Matcher matcher = namePattern.matcher(s2);
-      boolean matches = this.usersList.stream().anyMatch(user -> Integer.parseInt(s2) == user
-          .userIDProperty().get());
-      if (matcher.matches()) {
-        this.newUserID.setText(s2);
-        this.newUserID.setStyle("-fx-border-color: transparent;");
-        this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
-        this.newUser.setDisable(false);
-        if (matches) {
+      try (Stream<UserProperty> userPropertyStream = this.usersList.stream()) {
+        boolean matches = userPropertyStream.anyMatch(user -> Integer.parseInt(s2) == user
+            .userIDProperty().get());
+        if (matcher.matches()) {
+          this.newUserID.setText(s2);
+          this.newUserID.setStyle("-fx-border-color: transparent;");
+          this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
+          this.newUser.setDisable(false);
+          if (matches) {
+            this.newUserID.setStyle(
+                "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
+            this.newUserID.setTooltip(new Tooltip("This ID is already assigned"));
+            this.newUser.setDisable(true);
+          }
+        } else if (this.newUserID.getText().isEmpty()) {
+          this.newUserID.setStyle("-fx-border-color: transparent");
+          this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
+        } else {
           this.newUserID.setStyle(
               "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
-          this.newUserID.setTooltip(new Tooltip("This ID is already assigned"));
+          this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
           this.newUser.setDisable(true);
         }
-      } else if (this.newUserID.getText().isEmpty()) {
-        this.newUserID.setStyle("-fx-border-color: transparent");
-        this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
-      } else {
-        this.newUserID.setStyle(
-            "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
-        this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
-        this.newUser.setDisable(true);
       }
     });
   }
 
-  private void initCourseIDTextfield(final Pattern namePattern) {
+  private void initCourseIDTextfield(final Pattern idPattern) {
     this.newUserCourseID.setPromptText("Enter Course identification number");
-    final ObservableList<Course> courses = FXCollections.observableArrayList();
+    final ObservableList<CourseProperty> courses = FXCollections.observableArrayList();
     try (Connection connection = DatabaseConnection.getInstance(); Statement statement = connection
         .createStatement(); ResultSet resultSet = statement
         .executeQuery("SELECT * FROM COURSETABLE")) {
       while (resultSet.next()) {
-        courses.addAll(Course.createCourse(resultSet.getInt(1), resultSet.getString(2),
-            resultSet.getString(3), resultSet.getInt(4), resultSet.getString(5)));
+        courses.addAll(
+            CoursePropertyBuilder.createCoursePropertyBuilder().setCourseID(resultSet.getInt(1))
+                .setCourseName(resultSet.getString(2)).setCourseHead(resultSet.getString(3))
+                .setCourseLength(resultSet.getInt(4)).setDepartment(
+                resultSet.getString(5)).createCourseProperty());
       }
     } catch (final SQLException e) {
       LOGGER.log(Level.SEVERE, "No courses where found", e);
     }
     this.newUserCourseID.textProperty().addListener((observableValue, s, s2) -> {
-      final Matcher matcher = namePattern.matcher(s2);
+      final Matcher matcher = idPattern.matcher(s2);
       this.newUserCourseID.setTooltip(new Tooltip("Must be a valid Course ID"));
       if (matcher.matches()) {
         this.newUserCourseID.setText(s2);
         this.newUserCourseID.setStyle("-fx-border-color: transparent;");
         this.newUser.setDisable(false);
-        courses.stream().filter(course -> Integer.parseInt(s2) != course.getCourseID()).forEach(
-            course -> {
-              this.newUserCourseID.setStyle(
-                  "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
-              this.newUserCourseID.setTooltip(new Tooltip("Must be a valid Course ID"));
-              this.newUser.setDisable(true);
-            });
+        try (Stream<CourseProperty> coursePropertyStream = courses.stream();
+            Stream<CourseProperty> filter = coursePropertyStream.filter(
+                course -> Integer.parseInt(s2) != course.getCourseID())) {
+          filter.forEach(
+              course -> {
+                this.newUserCourseID.setStyle(
+                    "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
+                this.newUserCourseID.setTooltip(new Tooltip("Must be a valid Course ID"));
+                this.newUser.setDisable(true);
+              });
+        }
       } else if (this.newUserCourseID.textProperty().getValue().isEmpty()) {
         this.newUserCourseID.setStyle("-fx-border-color: transparent");
         this.newUser.setDisable(true);
