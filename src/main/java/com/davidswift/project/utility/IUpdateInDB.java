@@ -15,6 +15,7 @@ import java.util.logging.*;
 @FunctionalInterface
 public interface IUpdateInDB {
   public static final Logger LOGGER = Logger.getLogger(IUpdateInDB.class.getName());
+
   public default void updateInDB(
       final String table, final String[] columns, final Object... args
   ) throws SQLException {
@@ -24,14 +25,14 @@ public interface IUpdateInDB {
     for (int i1 = 0, columnsLength = columns.length; i1 < columnsLength; i1++) {
       final String column = columns[i1];
       update.append(column.toUpperCase()).append(" = ? ");
-      if (i1 != columnsLength-1) {
+      if (i1 != columnsLength - 1) {
         update.append(", ");
       }
     }
     update.append("Where ").append(table).append("_ID = ?");
     final String updateInDBString = update.toString();
-
-    try (Connection connection = DatabaseConnection.getInstance();PreparedStatement ps = connection.prepareStatement
+    try (Connection connection = DatabaseConnection.getInstance(); PreparedStatement ps =
+        connection.prepareStatement
         (updateInDBString)) {
       for (final Object arg : args) {
         if (arg instanceof Date) {
@@ -44,13 +45,15 @@ public interface IUpdateInDB {
           ps.setDouble(i++, (Double)arg);
         } else if (arg instanceof Float) {
           ps.setFloat(i++, (Float)arg);
+        } else if (arg instanceof Boolean) {
+          ps.setString(i++, String.valueOf((Boolean)arg));
         } else {
           ps.setString(i++, (String)arg);
         }
       }
       LOGGER.log(Level.INFO, String.valueOf(update));
       ps.executeUpdate();
-      this.update(args);
+
       ps.close();
     }
   }

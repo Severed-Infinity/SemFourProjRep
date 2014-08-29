@@ -1,12 +1,21 @@
 package com.davidswift.project;
 
 import com.davidswift.project.data.*;
+<<<<<<< HEAD
 import com.davidswift.project.utility.*;
 import com.davidswift.project.view.*;
 import javafx.application.*;
 
 <<<<<<< HEAD
 =======
+=======
+import com.davidswift.project.references.*;
+import com.davidswift.project.view.*;
+import javafx.application.*;
+
+import java.io.*;
+import java.nio.file.*;
+>>>>>>> origin/testing
 import java.sql.*;
 import java.util.logging.*;
 
@@ -25,6 +34,7 @@ public final class Main {
 
   private Main() {super();}
 
+<<<<<<< HEAD
   //Testing code
 <<<<<<< HEAD
   public static void main(String[] args) {
@@ -59,12 +69,22 @@ public final class Main {
       e.printStackTrace();
     }
 =======
+=======
+>>>>>>> origin/testing
   public static void main(final String... args) {
-    //build database
-    LOGGER.log(Level.INFO, String.valueOf(DatabaseConnection.getInstance()));
-//    BuildDatabase.createBuildDatabase();
-//    testData();
-    Application.launch(Interface.class, args);
+    //    testData();
+    //create timetable directory
+    final Path directory = Paths.get("../timetables");
+    if (Files.notExists(directory)) {
+      try {
+        LOGGER.log(Level.INFO, "Creating directory");
+        Files.createDirectories(directory);
+        LOGGER.log(Level.INFO, String.valueOf(directory.toAbsolutePath()));
+      } catch (final IOException e) {
+        LOGGER.log(Level.SEVERE, "Unable to create timetable directory", e);
+      }
+    }
+    Application.launch(LoginInterface.class, args);
   }
 >>>>>>> origin/testing
 
@@ -91,6 +111,7 @@ public final class Main {
 =======
     LOGGER.log(Level.INFO, testCourse.toString());
     //creating a test user
+<<<<<<< HEAD
 //    User testUser = User.createUser(1, "testFirst", "testLast", "testPass", 1,
 //        UserType.FULL_TIME.getType());
 //    LOGGER.log(Level.INFO, testUser.toString());
@@ -309,6 +330,234 @@ public final class Main {
 //                "Prop First").setUserLastName("Test Prop Last").setUserPassword("Test Prop Pass")
 //        .createUserPropertyTest();
 //    LOGGER.log(Level.INFO, userPropertyTest1.toString());
+>>>>>>> origin/testing
+=======
+    //    User testUser = User.createUser(1, "testFirst", "testLast", "testPass", 1,
+    //        UserType.FULL_TIME.getType());
+    //    LOGGER.log(Level.INFO, testUser.toString());
+    //    //    try {
+    //    //      testUser.removeFromDB(Table.USER.getValue(), testUser.getUserID());
+    //    //    } catch (SQLException e) {
+    //    //      e.printStackTrace();
+    //    //    }
+    //    try {
+    //      testUser.addToDB(Table.USER.getValue(),
+    //          testUser.getUserID(), testUser.getUserFirstName(),
+    //          testUser.getUserLastName(), testUser.getUserPassword(),
+    //          testUser.getCourseID(), testUser.getType());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to add a User", e);
+    //    }
+    //    //creating a test room
+    //    Room testRoom = Room.createRoom(1, 100, "testDepartment", false);
+    //    Room testRoom2 = Room.createRoom(2, 200, "testDepartment2", true, 3);
+    //    LOGGER.log(Level.INFO, testRoom.toString());
+    //    LOGGER.log(Level.INFO, testRoom2.toString());
+    //    try {
+    //      testRoom.addToDB(Table.ROOM.getValue(), testRoom.getRoomID(), testRoom.getRoomSeating(),
+    //          testRoom.getDepartment(), String.valueOf(testRoom.isLab()),
+    //          testRoom.getSharedRoomNumber());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to add a Room", e);
+    //    }
+    //    try {
+    //      testRoom2.addToDB(Table.ROOM.getValue(), testRoom2.getRoomID(),
+    // testRoom2.getRoomSeating(),
+    //          testRoom2.getDepartment(), String.valueOf(testRoom2.isLab()),
+    //          testRoom2.getSharedRoomNumber());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to add a Room", e);
+    //    }
+    //    try {
+    //      testRoom2.removeFromDB(Table.ROOM.getValue(), testRoom2.getRoomID());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to remove " + testRoom2.toString(), e);
+    //    }
+    //    //creating a test module
+    //    Module testModule = Module.createModule(1, "testModule", "testLectuer", 1);
+    //    try {
+    //      testModule.addToDB(Table.MODULE.getValue(), testModule.getModuleID(),
+    //          testModule.getModuleName(), testModule.getModuleLecturer(),
+    // testModule.getCourseID());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to add a Module", e);
+    //    }
+    //    LOGGER.log(Level.INFO, testModule.toString());
+    //    try {
+    //      testModule.updateInDB(Table.MODULE.getValue(),
+    //          new String[] {"module_name", "module_lecturer"},
+    //          "testNameUpdated", testModule.getModuleLecturer(), testModule.getModuleID());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to update " + testModule.toString(), e);
+    //    }
+    //    LOGGER.log(Level.INFO, testModule.toString());
+    //    //    try {
+    //    //      testModule.removeFromDB(Table.MODULE.getValue(), testModule.getModuleID());
+    //    //    } catch (SQLException e) {
+    //    //      e.printStackTrace();
+    //    //    }
+    //    //creating a test class
+    //    Class testClass = Class.createClass(1, 1, "testDay", 9.00);
+    //    try {
+    //      testClass.addToDB(Table.CLASS.getValue(), testClass.getRoomID(),
+    // testClass.getModuleID(),
+    //          testClass.getDay(), testClass.getTime());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to add a Class", e);
+    //    }
+    //    LOGGER.log(Level.INFO, testClass.toString());
+    //    //TODO change format of class to better work with IRemoveFromDB
+    //    //    try {
+    //    //      testClass.removeFromDB(Table.CLASS.getValue(), testClass.getRoomID());
+    //    //    } catch (SQLException e) {
+    //    //      e.printStackTrace();
+    //    //    }
+    //    //TODO change format of class to better work with IUpdateInDB
+    //    //    try {
+    //    //      testClass.updateInDB(Table.CLASS.getValue(), new String[] {"room_id"}, 2, 1);
+    //    //    } catch (SQLException e) {
+    //    //      e.printStackTrace();
+    //    //    }
+    //    UserProperty userPropertyTest = UserPropertyBuilder
+    //        .createUserPropertyTestBuilder()
+    //        .setUserID(
+    //            1)
+    //        .setUserFirstName(
+    //            "testPropFirst").setUserLastName("testPropSecond").setUserPassword(
+    //            "testPropPass").setCourseID(1).setUserType(
+    //            UserType.ADMIN.getType()).createUserPropertyTest();
+    //    LOGGER.log(Level.INFO, userPropertyTest.toString());
+    //    LOGGER.log(Level.INFO, userPropertyTest.getUserFirstName());
+    //    UserProperty userPropertyTest1 = UserPropertyBuilder
+    //        .createUserPropertyTestBuilder().setUserFirstName(
+    //        "Test " +
+    //            "Prop First").setUserLastName("Test Prop Last").setUserPassword("Test Prop Pass")
+    //        .createUserPropertyTest();
+    //    LOGGER.log(Level.INFO, userPropertyTest1.toString());
+    //    LOGGER.log(Level.INFO, String.valueOf(DatabaseConnection.getInstance()));
+    //    BuildDatabase.createBuildDatabase();
+    //    //creating a test course
+    //    testCourse = Course.createCourse(1, "testCourse", "testHead", 4, "testDept");
+    //    try {
+    //      testCourse.addToDB(Table.COURSE.getValue(), testCourse.getCourseID(),
+    //          testCourse.getCourseName(), testCourse.getCourseHead(),
+    // testCourse.getCourseLength(),
+    //          testCourse.getDepartment());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to create a Course", e);
+    //    }
+    //    LOGGER.log(Level.INFO, testCourse.toString());
+    //    try {
+    //      testCourse.updateInDB(Table.COURSE.getValue(), new String[] {"course_head"},
+    //          "testHeadChanged", testCourse.getCourseID());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to update Course " + testCourse.toString(), e);
+    //    }
+    //    LOGGER.log(Level.INFO, testCourse.toString());
+    //    //creating a test user
+    //    testUser = User.createUser(1, "testFirst", "testLast", "testPass", 1,
+    //        UserType.FULL_TIME.getType());
+    //    LOGGER.log(Level.INFO, testUser.toString());
+    //    //    try {
+    //    //      testUser.removeFromDB(Table.USER.getValue(), testUser.getUserID());
+    //    //    } catch (SQLException e) {
+    //    //      e.printStackTrace();
+    //    //    }
+    //    try {
+    //      testUser.addToDB(Table.USER.getValue(),
+    //          testUser.getUserID(), testUser.getUserFirstName(),
+    //          testUser.getUserLastName(), testUser.getUserPassword(),
+    //          testUser.getCourseID(), testUser.getType());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to add a User", e);
+    //    }
+    //    //creating a test room
+    //    testRoom = Room.createRoom(1, 100, "testDepartment", false);
+    //    testRoom2 = Room.createRoom(2, 200, "testDepartment2", true, 3);
+    //    LOGGER.log(Level.INFO, testRoom.toString());
+    //    LOGGER.log(Level.INFO, testRoom2.toString());
+    //    try {
+    //      testRoom.addToDB(Table.ROOM.getValue(), testRoom.getRoomID(), testRoom.getRoomSeating(),
+    //          testRoom.getDepartment(), String.valueOf(testRoom.isLab()),
+    //          testRoom.getSharedRoomNumber());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to add a Room", e);
+    //    }
+    //    try {
+    //      testRoom2.addToDB(Table.ROOM.getValue(), testRoom2.getRoomID(),
+    // testRoom2.getRoomSeating(),
+    //          testRoom2.getDepartment(), String.valueOf(testRoom2.isLab()),
+    //          testRoom2.getSharedRoomNumber());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to add a Room", e);
+    //    }
+    //    try {
+    //      testRoom2.removeFromDB(Table.ROOM.getValue(), testRoom2.getRoomID());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to remove " + testRoom2.toString(), e);
+    //    }
+    //    //creating a test module
+    //    testModule = Module.createModule(1, "testModule", "testLectuer", 1);
+    //    try {
+    //      testModule.addToDB(Table.MODULE.getValue(), testModule.getModuleID(),
+    //          testModule.getModuleName(), testModule.getModuleLecturer(),
+    // testModule.getCourseID());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to add a Module", e);
+    //    }
+    //    LOGGER.log(Level.INFO, testModule.toString());
+    //    try {
+    //      testModule.updateInDB(Table.MODULE.getValue(),
+    //          new String[] {"module_name", "module_lecturer"},
+    //          "testNameUpdated", testModule.getModuleLecturer(), testModule.getModuleID());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to update " + testModule.toString(), e);
+    //    }
+    //    LOGGER.log(Level.INFO, testModule.toString());
+    //    //    try {
+    //    //      testModule.removeFromDB(Table.MODULE.getValue(), testModule.getModuleID());
+    //    //    } catch (SQLException e) {
+    //    //      e.printStackTrace();
+    //    //    }
+    //    //creating a test class
+    //    testClass = Class.createClass(1, 1, "testDay", 9.00);
+    //    try {
+    //      testClass.addToDB(Table.CLASS.getValue(), testClass.getRoomID(),
+    // testClass.getModuleID(),
+    //          testClass.getDay(), testClass.getTime());
+    //    } catch (final SQLException e) {
+    //      LOGGER.log(Level.SEVERE, "Unable to add a Class", e);
+    //    }
+    //    LOGGER.log(Level.INFO, testClass.toString());
+    //    //TODO change format of class to better work with IRemoveFromDB
+    //    //    try {
+    //    //      testClass.removeFromDB(Table.CLASS.getValue(), testClass.getRoomID());
+    //    //    } catch (SQLException e) {
+    //    //      e.printStackTrace();
+    //    //    }
+    //    //TODO change format of class to better work with IUpdateInDB
+    //    //    try {
+    //    //      testClass.updateInDB(Table.CLASS.getValue(), new String[] {"room_id"}, 2, 1);
+    //    //    } catch (SQLException e) {
+    //    //      e.printStackTrace();
+    //    //    }
+    //    userPropertyTest = UserPropertyBuilder
+    //        .createUserPropertyTestBuilder()
+    //        .setUserID(
+    //            1)
+    //        .setUserFirstName(
+    //            "testPropFirst").setUserLastName("testPropSecond").setUserPassword(
+    //            "testPropPass").setCourseID(1).setUserType(
+    //            UserType.ADMIN.getType()).createUserPropertyTest();
+    //    LOGGER.log(Level.INFO, userPropertyTest.toString());
+    //    LOGGER.log(Level.INFO, userPropertyTest.getUserFirstName());
+    //    userPropertyTest1 = UserPropertyBuilder
+    //        .createUserPropertyTestBuilder().setUserFirstName(
+    //            "Test " +
+    //                "Prop First").setUserLastName("Test Prop Last").setUserPassword("Test Prop
+    // Pass")
+    //        .createUserPropertyTest();
+    //    LOGGER.log(Level.INFO, userPropertyTest1.toString());
 >>>>>>> origin/testing
   }
 }

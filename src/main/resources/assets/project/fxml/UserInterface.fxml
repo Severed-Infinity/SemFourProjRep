@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+            prefWidth="200.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="com.davidswift.project.controller.UserInterfaceController">
+    <AnchorPane>
+        <TableView fx:id="userTableView" layoutX="-1.0" layoutY="-2.0">
+            <columns>
+                <TableColumn fx:id="userIDField" prefWidth="75.0" text="User ID"/>
+                <TableColumn fx:id="userFirstNameField" prefWidth="75.0" text="First Name"/>
+                <TableColumn fx:id="userLastNameField" prefWidth="75.0" text="Last Name"/>
+                <TableColumn fx:id="userPasswordField" prefWidth="75.0" text="Password"/>
+                <TableColumn fx:id="userCourseIDField" prefWidth="75.0" text="Course ID"/>
+                <TableColumn fx:id="userTypeField" prefWidth="75.0" text="Type"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </AnchorPane>
+    <AnchorPane layoutX="451.0" layoutY="1.0" AnchorPane.bottomAnchor="-1.0"
+                AnchorPane.leftAnchor="451.0" AnchorPane.rightAnchor="-451.0"
+                AnchorPane.topAnchor="1.0">
+        <VBox spacing="3.0">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+            </padding>
+            <Label text="User ID"/>
+            <TextField fx:id="newUserID"/>
+            <Label text="First Name"/>
+            <TextField fx:id="newUserFirstName"/>
+            <Label text="Last Name"/>
+            <TextField fx:id="newUserLastName"/>
+            <Label text="Password"/>
+            <TextField fx:id="newUserPassword"/>
+            <Label text="Course ID"/>
+            <TextField fx:id="newUserCourseID"/>
+            <Label text="Type"/>
+            <ChoiceBox fx:id="newUserType" prefWidth="150.0">
+                <String fx:value="Admin"/>
+                <String fx:value="Full Time"/>
+                <String fx:value="Part Time"/>
+            </ChoiceBox>
+        </VBox>
+    </AnchorPane>
+
+    <HBox alignment="CENTER" layoutX="475.0" layoutY="333.0" spacing="10.0">
+        <opaqueInsets>
+            <Insets/>
+        </opaqueInsets>
+
+        <Button fx:id="newUser" onAction="#addNewUser" alignment="TOP_CENTER"
+                mnemonicParsing="false" text="Add"/>
+        <Button fx:id="deleteUser" onAction="#removeUser" mnemonicParsing="false" text="Delete"/>
+        <Button fx:id="clearFields" onAction="#clearFields" mnemonicParsing="false" text="Clear"/>
+    </HBox>
+</AnchorPane>

@@ -22,6 +22,7 @@ public class DatabaseConnection implements Serializable {
   private static final Logger LOGGER = Logger.getLogger(DatabaseConnection.class.getName());
   private static final long serialVersionUID = 1L;
   private transient PooledConnection connection;
+  private DBLocation dblocation;
 
   private DatabaseConnection(final DBLocation location) throws
       SQLException {
@@ -73,35 +74,44 @@ public class DatabaseConnection implements Serializable {
     return this.connection;
   }
 
+  public void closeConnection(){
+    try {
+      LOGGER.log(Level.INFO, "Closing database connection...");
+     this.connection.close();
+    } catch (final SQLException e) {
+      LOGGER.log(Level.SEVERE, "Unable to close database connection", e);
+    }
+  }
+
+  public static void setDblocation(final DBLocation dblocation) {
+    DatabaseConnectionHolder.setDblocation(dblocation);
+  }
+
   private static final class DatabaseConnectionHolder {
     public static final ThreadLocal<Optional<DatabaseConnection>> DATABASE_CONNECTION_OPTIONAL =
         new ThreadLocal<Optional<DatabaseConnection>>() {
-      @Override
-      protected Optional<DatabaseConnection> initialValue() {
-        Optional<DatabaseConnection> returnNewDatabaseConnection = Optional.empty();
-        try {
-          returnNewDatabaseConnection = Optional.of
-              (new DatabaseConnection(DBLocation.LOCAL));
-        } catch (final SQLException e) {
-          LOGGER.log(Level.SEVERE, "Could not establish a Database Connection", e);
-        }
-        return returnNewDatabaseConnection;
-      }
-    };
-    //    public static final ThreadLocal<DatabaseConnection> INSTANCE = new ThreadLocal
-    //        <DatabaseConnection>() {
-    //      @Override
-    //      protected DatabaseConnection initialValue() {
-    //        try {
-    //          //TODO dynamic injection of location
-    //          return new DatabaseConnection(DBLocation.LOCAL);
-    //        } catch (final ClassNotFoundException e) {
-    //          e.printStackTrace();
-    //        } catch (final SQLException e) {
-    //          e.printStackTrace();
-    //        }
-    //        return null;
-    //      }
-    //    };
+          @Override
+          protected Optional<DatabaseConnection> initialValue() {
+            Optional<DatabaseConnection> returnNewDatabaseConnection = Optional.empty();
+            try {
+              returnNewDatabaseConnection = Optional.of
+                  (new DatabaseConnection(dblocation));
+            } catch (final SQLException e) {
+              LOGGER.log(Level.SEVERE, "Could not establish a Database Connection", e);
+            }
+            return returnNewDatabaseConnection;
+          }
+
+        };
+
+    private static DBLocation dblocation;
+
+    public static DBLocation getDblocation() {
+      return dblocation;
+    }
+
+    public static void setDblocation(final DBLocation dblocation) {
+      DatabaseConnectionHolder.dblocation = dblocation;
+    }
   }
 }

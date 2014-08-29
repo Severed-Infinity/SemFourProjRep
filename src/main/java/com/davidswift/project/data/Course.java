@@ -1,7 +1,9 @@
 package com.davidswift.project.data;
 
+import com.davidswift.project.references.*;
 import com.davidswift.project.utility.*;
 
+import java.sql.*;
 import java.util.logging.*;
 
 /**
@@ -14,8 +16,7 @@ import java.util.logging.*;
  * Created by david on 7/5/2014.
  */
 public class Course implements IAddToDB, IRemoveFromDb, IUpdateInDB {
-  public static final Logger LOGGER = Logger.getLogger(Course.class.getName());
-
+  private static final Logger LOGGER = Logger.getLogger(Course.class.getName());
   private final int courseID;
   private final String courseName;
   private final int courseLength;
@@ -58,6 +59,27 @@ public class Course implements IAddToDB, IRemoveFromDb, IUpdateInDB {
         '}';
   }
 
+  public String getDepartment() {
+    return this.department;
+  }
+
+  @Override
+  public void update(final Object... args) {
+    this.setCourseHead((String)args[0]);
+  }
+
+  @Override
+  public void addToDB() {
+    LOGGER.log(Level.INFO, "Adding new course...");
+    try {
+      this.addToDB(Table.COURSE.getValue(), this.getCourseID(), this.getCourseName(),
+          this.getCourseHead(), this.getCourseLength(), this.department);
+      LOGGER.log(Level.INFO, "New course added");
+    } catch (final SQLException e) {
+      LOGGER.log(Level.SEVERE, "Unable to add new course", e);
+    }
+  }
+
   public int getCourseID() {
     return this.courseID;
   }
@@ -74,21 +96,8 @@ public class Course implements IAddToDB, IRemoveFromDb, IUpdateInDB {
     return this.courseLength;
   }
 
-  public String getDepartment() {
-    return this.department;
-  }
-
   public String getCourseName() {
     return this.courseName;
-  }
-
-  @Override
-  public void update(final Object... args) {
-    this.setCourseHead((String)args[0]);
-  }
-
-  @Override
-  public void addToDB() {
   }
 
   @Override

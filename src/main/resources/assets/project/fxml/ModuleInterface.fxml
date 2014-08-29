@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.davidswift.project.controller.ModuleInterfaceController">
+    <AnchorPane>
+        <TableView fx:id="moduleTableView" layoutX="-1.0" layoutY="-2.0" prefHeight="400.0"
+                   prefWidth="452.0">
+            <columns>
+                <TableColumn fx:id="moduleIDField" prefWidth="90.0" text="Module ID"/>
+                <TableColumn fx:id="moduleNameField" prefWidth="90.0" text="Module Name"/>
+                <TableColumn fx:id="moduleLecturerField" prefWidth="90.0"
+                             text="Module Lecturer"/>
+                <TableColumn fx:id="courseIDField" prefWidth="90.0" text="Course ID"/>
+
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </AnchorPane>
+    <AnchorPane layoutX="451.0" layoutY="1.0" AnchorPane.bottomAnchor="-1.0"
+                AnchorPane.leftAnchor="451.0" AnchorPane.rightAnchor="-451.0"
+                AnchorPane.topAnchor="1.0">
+        <VBox spacing="3.0">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+            </padding>
+
+            <Label text="Module ID"/>
+            <TextField fx:id="newModuleID"/>
+            <Label text="Module Name"/>
+            <TextField fx:id="newModuleName"/>
+            <Label text="Module Lecturer"/>
+            <TextField fx:id="newModuleLecturer"/>
+            <Label text="Course ID"/>
+            <TextField fx:id="newCourseID"/>
+        </VBox>
+    </AnchorPane>
+    <HBox alignment="CENTER" layoutX="469.0" layoutY="311.0" spacing="10.0">
+        <opaqueInsets>
+            <Insets/>
+        </opaqueInsets>
+        <Button fx:id="newModule" alignment="TOP_CENTER" mnemonicParsing="false"
+                onAction="#addNewModule" text="Add"/>
+        <Button fx:id="updateModule" mnemonicParsing="false" onAction="#updateModule"
+                text="Update"/>
+        <Button fx:id="deleteModule" mnemonicParsing="false" onAction="#removeModule"
+                text="Delete"/>
+    </HBox>
+    <HBox layoutX="469.0" layoutY="341.0">
+        <opaqueInsets>
+            <Insets/>
+        </opaqueInsets>
+        <Button fx:id="clearFields" mnemonicParsing="false" onAction="#clearFields"
+                text="Clear"/>
+    </HBox>
+</AnchorPane>

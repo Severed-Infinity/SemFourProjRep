@@ -1,7 +1,8 @@
 package com.davidswift.project.controller;
 
-import com.davidswift.project.data.*;
-import com.davidswift.project.data.UserProperty.*;
+import com.davidswift.project.model.*;
+import com.davidswift.project.model.CourseProperty.*;
+import com.davidswift.project.model.UserProperty.*;
 import com.davidswift.project.utility.*;
 import javafx.collections.*;
 import javafx.event.*;
@@ -13,6 +14,7 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.*;
 import java.util.regex.*;
+import java.util.stream.*;
 
 /**
  * Project SemFourProjRep
@@ -52,6 +54,7 @@ public class UserInterfaceController implements Initializable {
   public ChoiceBox newUserType;
   public Button newUser;
   public Button deleteUser;
+  public Button clearFields;
   private ObservableList<UserProperty> usersList;
 
   @Override
@@ -76,7 +79,7 @@ public class UserInterfaceController implements Initializable {
           //              (UserType.PART_TIME.getType()).createUserPropertyTest()
       );
       while (resultSet.next()) {
-        this.usersList.add(UserPropertyBuilder.createUserPropertyTestBuilder().setUserID
+        this.usersList.add(UserPropertyBuilder.createUserPropertyBuilder().setUserID
             (resultSet.getInt(1))
             .setUserFirstName
                 (resultSet.getString(2))
@@ -101,20 +104,31 @@ public class UserInterfaceController implements Initializable {
     } catch (final SQLException e) {
       LOGGER.log(Level.SEVERE, "Unable to execute query", e);
     }
-//    this.userTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener
-//        <UserProperty>() {
-//      @Override
-//      public void changed(
-//          final ObservableValue<? extends UserProperty> observableValue,
-//          final UserProperty userProperty,
-//          final UserProperty userProperty2
-//      ) {
-//
-//      }
-//    });
+    //    this.userTableView.setOnMouseClicked(mouseEvent -> {
+    //      final UserProperty selectedUserProperty = UserInterfaceController.this.userTableView
+    //          .getSelectionModel()
+    //          .getSelectedItem();
+    //      if (selectedUserProperty != null) {
+    //        UserInterfaceController.this.newUserID.setText(String.valueOf(selectedUserProperty
+    //            .userIDProperty().get()));
+    //        UserInterfaceController.this.newUserFirstName.setText(selectedUserProperty
+    //            .userFirstNameProperty().get());
+    //        UserInterfaceController.this.newUserLastName.setText(selectedUserProperty
+    //            .userLastNameProperty().get());
+    //        UserInterfaceController.this.newUserPassword.setText(selectedUserProperty
+    //            .userPasswordProperty().get());
+    //        UserInterfaceController.this.newUserCourseID.setText(
+    //            String.valueOf(selectedUserProperty.courseIDProperty().get()));
+    //        UserInterfaceController.this.newUserType.getSelectionModel().select(
+    //            selectedUserProperty.userTypeProperty().get().equals
+    //                (UserType.ADMIN.getType()) ? 0 : selectedUserProperty.userTypeProperty().get()
+    //                .equals
+    //                    (UserType.FULL_TIME.getType()) ? 1 : 2);
+    //      }
+    //    });
   }
 
-  public void initUserFields() {
+  protected void initUserFields() {
     this.newUser.setDisable(true);
     final Pattern namePattern = Pattern.compile("[A-Z][a-z]+");
     final Pattern passwordPattern = Pattern.compile("[a-z 0-9]+");
@@ -133,58 +147,67 @@ public class UserInterfaceController implements Initializable {
     this.newUserID.setPromptText("Enter identification number");
     this.newUserID.textProperty().addListener((observableValue, s, s2) -> {
       Matcher matcher = namePattern.matcher(s2);
-      boolean matches = this.usersList.stream().anyMatch(user -> Integer.parseInt(s2) == user
-          .userIDProperty().get());
-      if (matcher.matches()) {
-        this.newUserID.setText(s2);
-        this.newUserID.setStyle("-fx-border-color: transparent;");
-        this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
-        this.newUser.setDisable(false);
-        if (matches) {
+      try (Stream<UserProperty> userPropertyStream = this.usersList.stream()) {
+        boolean matches = userPropertyStream.anyMatch(user -> Integer.parseInt(s2) == user
+            .userIDProperty().get());
+        if (matcher.matches()) {
+          this.newUserID.setText(s2);
+          this.newUserID.setStyle("-fx-border-color: transparent;");
+          this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
+          this.newUser.setDisable(false);
+          if (matches) {
+            this.newUserID.setStyle(
+                "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
+            this.newUserID.setTooltip(new Tooltip("This ID is already assigned"));
+            this.newUser.setDisable(true);
+          }
+        } else if (this.newUserID.getText().isEmpty()) {
+          this.newUserID.setStyle("-fx-border-color: transparent");
+          this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
+        } else {
           this.newUserID.setStyle(
               "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
-          this.newUserID.setTooltip(new Tooltip("This ID is already assigned"));
+          this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
           this.newUser.setDisable(true);
         }
-      } else if (this.newUserID.getText().isEmpty()) {
-        this.newUserID.setStyle("-fx-border-color: transparent");
-        this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
-      } else {
-        this.newUserID.setStyle(
-            "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
-        this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
-        this.newUser.setDisable(true);
       }
     });
   }
 
-  private void initCourseIDTextfield(final Pattern namePattern) {
+  private void initCourseIDTextfield(final Pattern idPattern) {
     this.newUserCourseID.setPromptText("Enter Course identification number");
-    final ObservableList<Course> courses = FXCollections.observableArrayList();
+    final ObservableList<CourseProperty> courses = FXCollections.observableArrayList();
     try (Connection connection = DatabaseConnection.getInstance(); Statement statement = connection
         .createStatement(); ResultSet resultSet = statement
         .executeQuery("SELECT * FROM COURSETABLE")) {
       while (resultSet.next()) {
-        courses.addAll(Course.createCourse(resultSet.getInt(1), resultSet.getString(2),
-            resultSet.getString(3), resultSet.getInt(4), resultSet.getString(5)));
+        courses.addAll(
+            CoursePropertyBuilder.createCoursePropertyBuilder().setCourseID(resultSet.getInt(1))
+                .setCourseName(resultSet.getString(2)).setCourseHead(resultSet.getString(3))
+                .setCourseLength(resultSet.getInt(4)).setDepartment(
+                resultSet.getString(5)).createCourseProperty());
       }
     } catch (final SQLException e) {
       LOGGER.log(Level.SEVERE, "No courses where found", e);
     }
     this.newUserCourseID.textProperty().addListener((observableValue, s, s2) -> {
-      final Matcher matcher = namePattern.matcher(s2);
+      final Matcher matcher = idPattern.matcher(s2);
       this.newUserCourseID.setTooltip(new Tooltip("Must be a valid Course ID"));
       if (matcher.matches()) {
         this.newUserCourseID.setText(s2);
         this.newUserCourseID.setStyle("-fx-border-color: transparent;");
         this.newUser.setDisable(false);
-        courses.stream().filter(course -> Integer.parseInt(s2) != course.getCourseID()).forEach(
-            course -> {
-              this.newUserCourseID.setStyle(
-                  "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
-              this.newUserCourseID.setTooltip(new Tooltip("Must be a valid Course ID"));
-              this.newUser.setDisable(true);
-            });
+        try (Stream<CourseProperty> coursePropertyStream = courses.stream();
+            Stream<CourseProperty> filter = coursePropertyStream.filter(
+                course -> Integer.parseInt(s2) != course.getCourseID())) {
+          filter.forEach(
+              course -> {
+                this.newUserCourseID.setStyle(
+                    "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
+                this.newUserCourseID.setTooltip(new Tooltip("Must be a valid Course ID"));
+                this.newUser.setDisable(true);
+              });
+        }
       } else if (this.newUserCourseID.textProperty().getValue().isEmpty()) {
         this.newUserCourseID.setStyle("-fx-border-color: transparent");
         this.newUser.setDisable(true);
@@ -304,7 +327,7 @@ public class UserInterfaceController implements Initializable {
           "-fx-border-color: #f00; -fx-border-radius: 3; -fx-border-width: 2;");
       LOGGER.log(Level.SEVERE, "Fields cannot not be empty");
     } else {
-      final UserProperty newUser = UserPropertyBuilder.createUserPropertyTestBuilder().setUserID(
+      final UserProperty newUser = UserPropertyBuilder.createUserPropertyBuilder().setUserID(
           setID
       ).setUserFirstName(this.newUserFirstName.getText())
           .setUserLastName(this.newUserLastName.getText()).setUserPassword(
@@ -314,25 +337,38 @@ public class UserInterfaceController implements Initializable {
           .createUserPropertyTest();
       newUser.addToDB();
       this.usersList.addAll(newUser);
-      this.newUserID.clear();
-      this.newUserFirstName.clear();
-      this.newUserLastName.clear();
-      this.newUserPassword.clear();
-      this.newUserCourseID.clear();
-      this.newUserType.getSelectionModel().select(1);
+      this.clearFields();
+
     }
 
   }
 
-  public void removeUser(final ActionEvent actionEvent) {
-//    final int selectedIndex = this.userTableView.getSelectionModel().getSelectedIndex();
-    final UserProperty selectedUserProperty = this.userTableView.getSelectionModel().getSelectedItem();
-    selectedUserProperty.removeFromDB();
-    this.usersList.remove(selectedUserProperty);
-    LOGGER.log(Level.INFO, this.usersList.toString());
-    LOGGER.log(Level.INFO, this.userTableView.getItems().toString() );
-//    this.userTableView.getItems().remove(selectedUserProperty);
-//    this.userTableView.getItems().remove(selectedIndex);
+  @FXML
+  private void clearFields() {
+    this.newUserFirstName.clear();
+    this.newUserLastName.clear();
+    this.newUserPassword.clear();
+    this.newUserCourseID.clear();
+    this.newUserType.getSelectionModel().select(1);
+    this.newUserID.setStyle("-fx-border-color: transparent");
+    this.newUserID.setTooltip(new Tooltip("Must be Numeric Characters only"));
+    this.newUserID.clear();
+
   }
+
+  public void removeUser(final ActionEvent actionEvent) {
+    final UserProperty selectedUserProperty = selectUserProperty();
+    if (selectedUserProperty.userIDProperty().get() != 0) {
+      selectedUserProperty.removeFromDB();
+      this.usersList.remove(selectedUserProperty);
+    }
+
+  }
+
+  private UserProperty selectUserProperty() {
+    return this.userTableView.getSelectionModel()
+        .getSelectedItem();
+  }
+
 }
 

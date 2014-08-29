@@ -13,14 +13,13 @@ import javafx.beans.property.*;
  */
 public enum UserType {
   FULL_TIME("Full Time"), PART_TIME("Part Time"), ADMIN("Admin");
+  private final SimpleStringProperty type;
+
+  UserType(final String type) {this.type = new SimpleStringProperty(type);}
 
   public SimpleStringProperty typeProperty() {
     return this.type;
   }
-
-  private final SimpleStringProperty type;
-
-  UserType(final String type) {this.type = new SimpleStringProperty(type);}
 
   public String getType() {
     return this.type.get();

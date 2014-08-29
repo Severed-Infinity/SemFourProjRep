@@ -25,10 +25,10 @@ public interface IAddToDB {
     }
     stringBuilder.append("?)"); // end of insert statement
     final String addToDBString = stringBuilder.toString();
-//    System.out.println(addToDBString);//testing the output of the insert statement
-
-    try (Connection connection = DatabaseConnection.getInstance();PreparedStatement ps = connection.prepareStatement(
-        addToDBString)) {
+    //    System.out.println(addToDBString);//testing the output of the insert statement
+    try (Connection connection = DatabaseConnection.getInstance(); PreparedStatement ps =
+        connection.prepareStatement(
+            addToDBString)) {
       //running through the passed in arguments and finding there types
       for (final Object arg : args) {
         if (arg instanceof Date) {
@@ -41,6 +41,8 @@ public interface IAddToDB {
           ps.setDouble(i++, (Double)arg);
         } else if (arg instanceof Float) {
           ps.setFloat(i++, (Float)arg);
+        } else if(arg instanceof Boolean) {
+          ps.setString(i++, String.valueOf((Boolean)arg));
         } else {
           ps.setString(i++, (String)arg);
         }
@@ -49,6 +51,7 @@ public interface IAddToDB {
       ps.close();
     }
   }
+
   public abstract void addToDB();
 
 }
