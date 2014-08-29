@@ -103,7 +103,7 @@ public class DatabaseConnection implements Serializable {
           }
 
         };
-    //TODO dynamic injection of location
+
     private static DBLocation dblocation;
 
     public static DBLocation getDblocation() {

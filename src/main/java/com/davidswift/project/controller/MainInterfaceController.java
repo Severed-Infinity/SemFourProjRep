@@ -28,6 +28,7 @@ public class MainInterfaceController implements Initializable {
   private static Stage prevStage;
   public Button logout;
   public Button printTimetable;
+  public TextField printCourseID;
 
   public static Stage getPrevStage() {
     return prevStage;
@@ -70,6 +71,6 @@ public class MainInterfaceController implements Initializable {
   }
 
   public void printTimetableHandler(final ActionEvent actionEvent) {
-    PrintTimetable.createPrintTimetable(0);
+    PrintTimetable.createPrintTimetable(Integer.parseInt(this.printCourseID.getText()));
   }
 }

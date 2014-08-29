@@ -81,7 +81,7 @@ public class LoginInterfaceController implements Initializable {
     if (this.buildDatabase.isSelected()) {
       BuildDatabase.createBuildDatabase();
       try {
-        //TODO add default module
+
         final CourseProperty defaultCourse = CoursePropertyBuilder.createCoursePropertyBuilder()
             .setCourseID(0).setCourseName("Admin").setCourseHead("Admin").setCourseLength(0)
             .setDepartment("admin").createCourseProperty();

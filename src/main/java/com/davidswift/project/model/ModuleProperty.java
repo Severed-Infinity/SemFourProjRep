@@ -59,6 +59,16 @@ public class ModuleProperty implements IAddToDB, IRemoveFromDb, IUpdateInDB {
     }
   }
 
+  @Override
+  public String toString() {
+    return "ModuleProperty{" +
+        "moduleID=" + this.moduleID +
+        ", courseID=" + this.courseID +
+        ", moduleName=" + this.moduleName +
+        ", moduleLecturer=" + this.moduleLecturer +
+        '}';
+  }
+
   protected int getModuleID() {
     return this.moduleID.get();
   }

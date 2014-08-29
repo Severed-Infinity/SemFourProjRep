@@ -5,6 +5,8 @@ import com.davidswift.project.references.*;
 import com.davidswift.project.view.*;
 import javafx.application.*;
 
+import java.io.*;
+import java.nio.file.*;
 import java.sql.*;
 import java.util.logging.*;
 
@@ -24,6 +26,17 @@ public final class Main {
 
   public static void main(final String... args) {
     //    testData();
+    //create timetable directory
+    final Path directory = Paths.get("../timetables");
+    if (Files.notExists(directory)) {
+      try {
+        LOGGER.log(Level.INFO, "Creating directory");
+        Files.createDirectories(directory);
+        LOGGER.log(Level.INFO, String.valueOf(directory.toAbsolutePath()));
+      } catch (final IOException e) {
+        LOGGER.log(Level.SEVERE, "Unable to create timetable directory", e);
+      }
+    }
     Application.launch(LoginInterface.class, args);
   }
 
