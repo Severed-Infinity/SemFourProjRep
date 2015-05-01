@@ -10,6 +10,9 @@
 	</contentEntry>
 	<lib name="Gradle: unresolved_dependency___junit_junit_4_11" scope="TEST"/>
 	<lib name="Gradle: jfxrt" scope="PROVIDED"/>
+	<lib name="ojdbc6.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/ojdbc6.jar!/"/>
+	</lib>
 	<levels>
 		<level name="Gradle: ojdbc6" value="project"/>
 		<level name="Gradle: unresolved_dependency___junit_junit_4_11" value="project"/>

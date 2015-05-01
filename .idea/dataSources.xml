@@ -5,12 +5,7 @@
       <driver-ref>oracle</driver-ref>
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
       <jdbc-url>jdbc:oracle:thin:@//localhost:1521</jdbc-url>
-      <user-name>admin</user-name>
-      <user-password>dfcbdfcedfc7dfc3dfc4</user-password>
-      <schema-pattern>*.ADMIN</schema-pattern>
-      <default-schemas>*.ADMIN</default-schemas>
       <libraries />
     </data-source>
   </component>
 </project>
-
